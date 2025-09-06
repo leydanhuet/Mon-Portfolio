@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leydan Huet - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #006ab3;
+            --secondary-color: #ffffff;
+            --accent-color: #ffcc00;
+            --dark-blue: #00457c;
+            --light-blue: #e6f2ff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; color: #333; background-image: linear-gradient(to bottom, var(--light-blue) 0%, var(--secondary-color) 100%); background-attachment: fixed; }
+        .navbar { background-color: var(--primary-color); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);} 
+        .navbar-brand, .nav-link { color: var(--secondary-color) !important; font-weight: 600; }
+        .nav-link:hover { color: var(--accent-color) !important; }
+        .hero-section { background: url('https://images.unsplash.com/photo-1552667466-07770ae110d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center; background-size: cover; padding: 150px 0 100px; position: relative; color: white; text-align: center; }
+        .hero-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0, 106, 179, 0.8) 0%, rgba(0, 69, 124, 0.9) 100%); }
+        .hero-content { position: relative; z-index: 1; }
+        .profile-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid var(--secondary-color); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+        .section-title { position: relative; margin-bottom: 40px; font-weight: 700; color: var(--primary-color); text-align: center; }
+        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background: var(--accent-color); margin: 10px auto; border-radius: 2px; }
+        .cv-section { background: linear-gradient(135deg, var(--light-blue) 0%, var(--secondary-color) 100%); padding: 80px 0; }
+        .cv-container { background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); overflow: hidden; margin-bottom: 40px; padding: 30px; text-align: center; }
+        .pdf-thumbnail { display: inline-block; margin: 20px; text-align: center; }
+        .pdf-thumbnail i { font-size: 80px; color: var(--primary-color); }
+        .pdf-thumbnail h5 { margin-top: 15px; font-weight: 600; color: #333; }
+        .pdf-thumbnail a { text-decoration: none; color: inherit; }
+        .pdf-thumbnail:hover i { color: var(--accent-color); transform: scale(1.1); transition: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-futbol me-2"></i>Leydan Huet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cv">Mes PDF</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Leydan Huet" class="profile-img mb-4">
+                    <h1 class="display-4 fw-bold mb-3">Leydan Huet</h1>
+                    <p class="lead mb-4">Étudiant passionné par l'informatique et à la recherche de nouveaux défis professionnels</p>
+                    <div class="inazuma-badge">Esprit d'équipe • Adaptation • Passion</div>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-primary me-2"><i class="fa-regular fa-envelope me-2"></i>Me contacter</a>
+                        <a href="#cv" class="btn btn-download"><i class="fa-solid fa-download me-2"></i>Voir mes PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="cv-section">
+        <div class="container">
+            <h2 class="section-title">Mes Comptes Rendues</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="cv-container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 pdf-thumbnail">
+                                <a href="CV_Leydan_Huet.pdf" target="_blank">
+                                    <i class="fa-regular fa-file-pdf"></i>
+                                    <h5>CV - Leydan Huet</h5>
+                                </a>
+                            </div>
+                            <div class="col-md-4 pdf-thumbnail">
+    <a href="Compte rendu HUET Leydan SIO1.pdf" target="_blank">
+        <i class="fa-regular fa-file-pdf"></i>
+        <h5>Compte rendu SIO1</h5>
+    </a>
+</div>
+
+<div class="col-md-4 pdf-thumbnail">
+    <a href="Compte rendu connexion" target="_blank">
+        <i class="fa-regular fa-file-pdf"></i>
+        <h5>Comptes rendues connexion</h5>
+    </a>
+</div>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="mb-4">
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="mb-2">@Kirayano Leydan</p>
+            <p class="mb-0">© 2025 Leydan Huet. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
