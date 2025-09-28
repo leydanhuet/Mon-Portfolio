@@ -22,10 +22,13 @@
             background-color: var(--dark-color); 
             color: var(--secondary-color); 
             background-image: 
+                url('10067_88d323d845.pdf'),
                 radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.1) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(255, 107, 0, 0.1) 0%, transparent 20%),
                 linear-gradient(to bottom, var(--dark-color) 0%, var(--street-gray) 100%); 
             background-attachment: fixed; 
+            background-size: cover;
+            background-blend-mode: overlay;
         }
         .navbar { 
             background-color: rgba(26, 26, 26, 0.95); 
@@ -43,7 +46,7 @@
         .hero-section { 
             background: 
                 linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.9)),
-                url('https://images.unsplash.com/photo-1547394765-185e1e68f34e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center; 
+                url('10067_88d323d845.pdf') no-repeat center center; 
             background-size: cover; 
             padding: 150px 0 100px; 
             position: relative; 
@@ -63,20 +66,6 @@
             border: 5px solid var(--street-orange); 
             box-shadow: 0 0 20px rgba(255, 107, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.8); 
             background: linear-gradient(45deg, var(--street-gray), var(--concrete));
-        }
-        .profile-img::before {
-            content: "TAG FOOT 2 RUE";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--street-orange);
-            color: var(--dark-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-            letter-spacing: 1px;
         }
         .section-title { 
             position: relative; 
@@ -313,12 +302,9 @@
         <div class="container hero-content">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <!-- Image de profil avec style Tag de foot 2 rue -->
+                    <!-- Image de profil avec le premier PDF -->
                     <div style="position: relative; display: inline-block;">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Leydan Huet - Tag Foot 2 Rue" class="profile-img mb-4">
-                        <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--street-orange); color: var(--dark-color); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; letter-spacing: 1px; white-space: nowrap;">
-                            TAG FOOT 2 RUE
-                        </div>
+                        <img src="747161c0d9e604807c2ae8c7e6803d87.pdf" alt="Leydan Huet" class="profile-img mb-4">
                     </div>
                     <h1 class="display-4 fw-bold mb-3">Leydan Huet</h1>
                     <p class="lead mb-4">Étudiant passionné par l'informatique et à la recherche de nouveaux défis professionnels</p>
