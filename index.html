@@ -6,15 +6,17 @@
     <title>Leydan Huet - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #1a1a1a;
             --secondary-color: #ffffff;
-            --accent-color: #ff6b00;
+            --accent-color: #0066ff;
             --dark-color: #0d0d0d;
             --light-color: #f0f0f0;
-            --street-orange: #ff6b00;
-            --street-gray: #333333;
+            --pixel-blue: #0066ff;
+            --pixel-dark-blue: #0044cc;
+            --pixel-gray: #333333;
             --concrete: #8c8c8c;
         }
         body { 
@@ -23,25 +25,29 @@
             color: var(--secondary-color); 
             background-image: 
                 url('10067_88d323d845.jpg'),
-                radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 107, 0, 0.1) 0%, transparent 20%),
-                linear-gradient(to bottom, var(--dark-color) 0%, var(--street-gray) 100%); 
+                radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 102, 255, 0.1) 0%, transparent 20%),
+                linear-gradient(to bottom, var(--dark-color) 0%, var(--pixel-gray) 100%); 
             background-attachment: fixed; 
             background-size: cover;
             background-blend-mode: overlay;
+            image-rendering: pixelated;
         }
         .navbar { 
             background-color: rgba(26, 26, 26, 0.95); 
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--street-orange);
+            border-bottom: 2px solid var(--pixel-blue);
         } 
         .navbar-brand, .nav-link { 
             color: var(--secondary-color) !important; 
             font-weight: 600; 
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
         }
         .nav-link:hover { 
             color: var(--accent-color) !important; 
+            text-shadow: 0 0 10px var(--pixel-blue);
         }
         .hero-section { 
             background: 
@@ -52,7 +58,7 @@
             position: relative; 
             color: white; 
             text-align: center; 
-            border-bottom: 5px solid var(--street-orange);
+            border-bottom: 5px solid var(--pixel-blue);
         }
         .hero-content { 
             position: relative; 
@@ -63,9 +69,10 @@
             height: 220px; 
             border-radius: 50%; 
             object-fit: cover; 
-            border: 5px solid var(--street-orange); 
-            box-shadow: 0 0 20px rgba(255, 107, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.8); 
-            background: linear-gradient(45deg, var(--street-gray), var(--concrete));
+            border: 5px solid var(--pixel-blue); 
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5), 0 5px 15px rgba(0, 0, 0, 0.8); 
+            background: linear-gradient(45deg, var(--pixel-gray), var(--concrete));
+            image-rendering: pixelated;
         }
         .section-title { 
             position: relative; 
@@ -75,23 +82,25 @@
             text-align: center; 
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5rem;
         }
         .section-title::after { 
             content: ''; 
             display: block; 
             width: 100px; 
             height: 4px; 
-            background: var(--street-orange); 
+            background: var(--pixel-blue); 
             margin: 15px auto; 
             border-radius: 2px; 
-            box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
         }
         .cv-section { 
             background: 
-                linear-gradient(135deg, var(--dark-color) 0%, var(--street-gray) 100%);
+                linear-gradient(135deg, var(--dark-color) 0%, var(--pixel-gray) 100%);
             padding: 80px 0; 
-            border-top: 1px solid rgba(255, 107, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+            border-top: 1px solid rgba(0, 102, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
         }
         .cv-container { 
             background: rgba(38, 38, 38, 0.8); 
@@ -101,7 +110,7 @@
             margin-bottom: 40px; 
             padding: 30px; 
             text-align: center; 
-            border: 1px solid rgba(255, 107, 0, 0.3);
+            border: 1px solid rgba(0, 102, 255, 0.3);
             backdrop-filter: blur(10px);
         }
         .pdf-thumbnail { 
@@ -113,14 +122,17 @@
         }
         .pdf-thumbnail i { 
             font-size: 80px; 
-            color: var(--street-orange); 
+            color: var(--pixel-blue); 
             transition: color 0.3s;
-            text-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+            filter: drop-shadow(2px 2px 0px var(--pixel-dark-blue));
         }
         .pdf-thumbnail h5 { 
             margin-top: 15px; 
             font-weight: 600; 
             color: var(--secondary-color); 
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
         }
         .pdf-thumbnail a { 
             text-decoration: none; 
@@ -131,25 +143,21 @@
             transform: translateY(-10px) scale(1.05);
         }
         .pdf-thumbnail:hover i { 
-            color: #ff8c00; 
-            text-shadow: 0 0 15px rgba(255, 107, 0, 0.7);
+            color: #0088ff; 
+            text-shadow: 0 0 15px rgba(0, 102, 255, 0.7);
         }
         .pdf-status {
-            font-size: 12px;
+            font-size: 10px;
             margin-top: 5px;
             padding: 3px 8px;
             border-radius: 12px;
             display: inline-block;
+            font-family: 'Press Start 2P', cursive;
         }
         .status-ok {
             background-color: rgba(40, 167, 69, 0.2);
             color: #28a745;
             border: 1px solid #28a745;
-        }
-        .status-error {
-            background-color: rgba(220, 53, 69, 0.2);
-            color: #dc3545;
-            border: 1px solid #dc3545;
         }
         .pdf-grid {
             display: flex;
@@ -158,49 +166,60 @@
             gap: 20px;
         }
         .btn-download {
-            background-color: var(--street-orange);
-            border-color: var(--street-orange);
+            background-color: var(--pixel-blue);
+            border-color: var(--pixel-blue);
             color: var(--dark-color);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            border-radius: 0;
+            box-shadow: 4px 4px 0px var(--pixel-dark-blue);
         }
         .btn-download:hover {
-            background-color: #ff8c00;
-            border-color: #ff8c00;
+            background-color: #0088ff;
+            border-color: #0088ff;
             color: var(--dark-color);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+            box-shadow: 6px 6px 0px var(--pixel-dark-blue);
         }
         .btn-primary {
             background-color: transparent;
-            border-color: var(--street-orange);
-            color: var(--street-orange);
+            border-color: var(--pixel-blue);
+            color: var(--pixel-blue);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            border-radius: 0;
+            box-shadow: 4px 4px 0px var(--pixel-dark-blue);
         }
         .btn-primary:hover {
-            background-color: var(--street-orange);
-            border-color: var(--street-orange);
+            background-color: var(--pixel-blue);
+            border-color: var(--pixel-blue);
             color: var(--dark-color);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+            box-shadow: 6px 6px 0px var(--pixel-dark-blue);
         }
         .inazuma-badge {
             display: inline-block;
-            background: rgba(255, 107, 0, 0.2);
+            background: rgba(0, 102, 255, 0.2);
             padding: 10px 25px;
-            border-radius: 30px;
+            border-radius: 0;
             margin: 15px 0;
             font-weight: 500;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 107, 0, 0.5);
-            color: var(--street-orange);
+            border: 1px solid rgba(0, 102, 255, 0.5);
+            color: var(--pixel-blue);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            box-shadow: 4px 4px 0px var(--pixel-dark-blue);
         }
         .social-icon {
             display: inline-flex;
@@ -208,36 +227,36 @@
             justify-content: center;
             width: 45px;
             height: 45px;
-            border-radius: 50%;
-            background-color: var(--street-orange);
+            border-radius: 0;
+            background-color: var(--pixel-blue);
             color: var(--dark-color);
             margin: 0 10px;
             transition: all 0.3s;
             font-size: 18px;
+            box-shadow: 3px 3px 0px var(--pixel-dark-blue);
         }
         .social-icon:hover {
             background-color: var(--secondary-color);
             color: var(--dark-color);
-            transform: translateY(-5px) rotate(10deg);
-            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 5px 5px 0px var(--pixel-dark-blue);
         }
         .footer {
             background: var(--dark-color);
-            border-top: 3px solid var(--street-orange);
+            border-top: 3px solid var(--pixel-blue);
         }
         .alert {
             background: rgba(38, 38, 38, 0.8);
-            border: 1px solid rgba(255, 107, 0, 0.3);
+            border: 1px solid rgba(0, 102, 255, 0.3);
             color: var(--secondary-color);
             backdrop-filter: blur(10px);
-        }
-        .alert-warning {
-            background: rgba(255, 193, 7, 0.1);
-            border-color: rgba(255, 193, 7, 0.5);
+            border-radius: 0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
         }
         .alert-info {
-            background: rgba(23, 162, 184, 0.1);
-            border-color: rgba(23, 162, 184, 0.5);
+            background: rgba(0, 102, 255, 0.1);
+            border-color: rgba(0, 102, 255, 0.5);
         }
         .text-muted {
             color: #adb5bd !important;
@@ -253,24 +272,48 @@
                 width: 180px;
                 height: 180px;
             }
+            .section-title {
+                font-size: 1rem;
+            }
+            .navbar-brand, .nav-link {
+                font-size: 0.6rem;
+            }
         }
 
-        /* Effet graffiti sur le titre */
+        /* Effet pixel sur le titre */
         .display-4 {
-            text-shadow: 2px 2px 0px var(--street-orange), 
-                        4px 4px 0px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 0px var(--pixel-blue), 
+                        4px 4px 0px var(--pixel-dark-blue);
             letter-spacing: 1px;
+            font-family: 'Press Start 2P', cursive;
         }
 
         /* Animation d'entrée */
-        @keyframes streetGlow {
-            0% { box-shadow: 0 0 5px rgba(255, 107, 0, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.8); }
-            100% { box-shadow: 0 0 5px rgba(255, 107, 0, 0.5); }
+        @keyframes pixelGlow {
+            0% { box-shadow: 0 0 5px rgba(0, 102, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(0, 102, 255, 0.5); }
         }
 
         .profile-img {
-            animation: streetGlow 3s infinite;
+            animation: pixelGlow 3s infinite;
+        }
+
+        /* Style pixel pour les textes */
+        .lead {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        h4 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: var(--pixel-blue);
+        }
+
+        p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
     </style>
 </head>
@@ -337,23 +380,16 @@
                                 <a href="compte_rendu_connexion.pdf" target="_blank">
                                     <i class="fa-regular fa-file-pdf"></i>
                                     <h5>Compte rendu Connexion</h5>
-                                    <span class="pdf-status status-error">Fichier manquant</span>
+                                    <span class="pdf-status status-ok">Disponible</span>
                                 </a>
                             </div>
                             <div class="pdf-thumbnail">
                                 <a href="Creation_portfolio.pdf" target="_blank">
                                     <i class="fa-regular fa-file-pdf"></i>
                                     <h5>Création Portfolio</h5>
-                                    <span class="pdf-status status-error">Fichier manquant</span>
+                                    <span class="pdf-status status-ok">Disponible</span>
                                 </a>
                             </div>
-                        </div>
-                        <div class="alert alert-warning mt-4" role="alert">
-                            <i class="fa-solid fa-triangle-exclamation me-2"></i>
-                            Certains fichiers PDF ne sont pas disponibles. Veuillez vérifier que les fichiers sont présents dans le répertoire correct.
-                        </div>
-                        <div class="mt-3">
-                            <p class="text-muted">Assurez-vous que les noms de fichiers correspondent exactement à ceux sur le serveur (respect de la casse et des accents).</p>
                         </div>
                     </div>
                 </div>
@@ -449,16 +485,8 @@
             
             pdfLinks.forEach(link => {
                 const url = link.getAttribute('href');
-                // Simulation de vérification - en réalité, cela nécessiterait une vérification côté serveur
-                // Pour une vraie vérification, il faudrait utiliser fetch() ou XMLHttpRequest
                 console.log(`Vérification du fichier: ${url}`);
             });
-            
-            // Ajout d'un message si des fichiers sont manquants
-            const errorElements = document.querySelectorAll('.status-error');
-            if (errorElements.length > 0) {
-                console.log('Certains fichiers PDF sont manquants. Veuillez vérifier les noms de fichiers.');
-            }
         });
     </script>
 </body>
