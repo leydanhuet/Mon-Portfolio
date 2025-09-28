@@ -8,22 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #006ab3;
+            --primary-color: #1a1a1a;
             --secondary-color: #ffffff;
-            --accent-color: #ffcc00;
-            --dark-blue: #00457c;
-            --light-blue: #e6f2ff;
+            --accent-color: #ff6b00;
+            --dark-color: #0d0d0d;
+            --light-color: #f0f0f0;
+            --street-orange: #ff6b00;
+            --street-gray: #333333;
+            --concrete: #8c8c8c;
         }
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f8f9fa; 
-            color: #333; 
-            background-image: linear-gradient(to bottom, var(--light-blue) 0%, var(--secondary-color) 100%); 
+            background-color: var(--dark-color); 
+            color: var(--secondary-color); 
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 107, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 107, 0, 0.1) 0%, transparent 20%),
+                linear-gradient(to bottom, var(--dark-color) 0%, var(--street-gray) 100%); 
             background-attachment: fixed; 
         }
         .navbar { 
-            background-color: var(--primary-color); 
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(26, 26, 26, 0.95); 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--street-orange);
         } 
         .navbar-brand, .nav-link { 
             color: var(--secondary-color) !important; 
@@ -33,62 +41,79 @@
             color: var(--accent-color) !important; 
         }
         .hero-section { 
-            background: url('https://images.unsplash.com/photo-1552667466-07770ae110d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center; 
+            background: 
+                linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.9)),
+                url('https://images.unsplash.com/photo-1547394765-185e1e68f34e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center; 
             background-size: cover; 
             padding: 150px 0 100px; 
             position: relative; 
             color: white; 
             text-align: center; 
-        }
-        .hero-section::before { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: linear-gradient(to bottom, rgba(0, 106, 179, 0.8) 0%, rgba(0, 69, 124, 0.9) 100%); 
+            border-bottom: 5px solid var(--street-orange);
         }
         .hero-content { 
             position: relative; 
             z-index: 1; 
         }
         .profile-img { 
-            width: 200px; 
-            height: 200px; 
+            width: 220px; 
+            height: 220px; 
             border-radius: 50%; 
             object-fit: cover; 
-            border: 5px solid var(--secondary-color); 
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+            border: 5px solid var(--street-orange); 
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.8); 
+            background: linear-gradient(45deg, var(--street-gray), var(--concrete));
+        }
+        .profile-img::before {
+            content: "TAG FOOT 2 RUE";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--street-orange);
+            color: var(--dark-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
         .section-title { 
             position: relative; 
             margin-bottom: 40px; 
             font-weight: 700; 
-            color: var(--primary-color); 
+            color: var(--secondary-color); 
             text-align: center; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         .section-title::after { 
             content: ''; 
             display: block; 
-            width: 80px; 
+            width: 100px; 
             height: 4px; 
-            background: var(--accent-color); 
-            margin: 10px auto; 
+            background: var(--street-orange); 
+            margin: 15px auto; 
             border-radius: 2px; 
+            box-shadow: 0 0 10px rgba(255, 107, 0, 0.5);
         }
         .cv-section { 
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--secondary-color) 100%); 
+            background: 
+                linear-gradient(135deg, var(--dark-color) 0%, var(--street-gray) 100%);
             padding: 80px 0; 
+            border-top: 1px solid rgba(255, 107, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 107, 0, 0.2);
         }
         .cv-container { 
-            background: white; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+            background: rgba(38, 38, 38, 0.8); 
+            border-radius: 10px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
             overflow: hidden; 
             margin-bottom: 40px; 
             padding: 30px; 
             text-align: center; 
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
         .pdf-thumbnail { 
             display: inline-block; 
@@ -99,13 +124,14 @@
         }
         .pdf-thumbnail i { 
             font-size: 80px; 
-            color: var(--primary-color); 
+            color: var(--street-orange); 
             transition: color 0.3s;
+            text-shadow: 0 0 10px rgba(255, 107, 0, 0.3);
         }
         .pdf-thumbnail h5 { 
             margin-top: 15px; 
             font-weight: 600; 
-            color: #333; 
+            color: var(--secondary-color); 
         }
         .pdf-thumbnail a { 
             text-decoration: none; 
@@ -113,10 +139,11 @@
             display: block;
         }
         .pdf-thumbnail:hover { 
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.05);
         }
         .pdf-thumbnail:hover i { 
-            color: var(--accent-color); 
+            color: #ff8c00; 
+            text-shadow: 0 0 15px rgba(255, 107, 0, 0.7);
         }
         .pdf-status {
             font-size: 12px;
@@ -126,12 +153,14 @@
             display: inline-block;
         }
         .status-ok {
-            background-color: #d4edda;
-            color: #155724;
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border: 1px solid #28a745;
         }
         .status-error {
-            background-color: #f8d7da;
-            color: #721c24;
+            background-color: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            border: 1px solid #dc3545;
         }
         .pdf-grid {
             display: flex;
@@ -140,41 +169,89 @@
             gap: 20px;
         }
         .btn-download {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
-            color: #333;
+            background-color: var(--street-orange);
+            border-color: var(--street-orange);
+            color: var(--dark-color);
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
         }
         .btn-download:hover {
-            background-color: #e6b800;
-            border-color: #e6b800;
-            color: #333;
+            background-color: #ff8c00;
+            border-color: #ff8c00;
+            color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        }
+        .btn-primary {
+            background-color: transparent;
+            border-color: var(--street-orange);
+            color: var(--street-orange);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: var(--street-orange);
+            border-color: var(--street-orange);
+            color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
         }
         .inazuma-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
+            background: rgba(255, 107, 0, 0.2);
+            padding: 10px 25px;
             border-radius: 30px;
             margin: 15px 0;
             font-weight: 500;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 0, 0.5);
+            color: var(--street-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .social-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background-color: var(--primary-color);
-            color: white;
-            margin: 0 8px;
+            background-color: var(--street-orange);
+            color: var(--dark-color);
+            margin: 0 10px;
             transition: all 0.3s;
+            font-size: 18px;
         }
         .social-icon:hover {
-            background-color: var(--accent-color);
-            color: #333;
-            transform: translateY(-3px);
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.5);
+        }
+        .footer {
+            background: var(--dark-color);
+            border-top: 3px solid var(--street-orange);
+        }
+        .alert {
+            background: rgba(38, 38, 38, 0.8);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            color: var(--secondary-color);
+            backdrop-filter: blur(10px);
+        }
+        .alert-warning {
+            background: rgba(255, 193, 7, 0.1);
+            border-color: rgba(255, 193, 7, 0.5);
+        }
+        .alert-info {
+            background: rgba(23, 162, 184, 0.1);
+            border-color: rgba(23, 162, 184, 0.5);
+        }
+        .text-muted {
+            color: #adb5bd !important;
         }
         @media (max-width: 768px) {
             .pdf-thumbnail {
@@ -183,6 +260,28 @@
             .pdf-thumbnail i {
                 font-size: 60px;
             }
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        /* Effet graffiti sur le titre */
+        .display-4 {
+            text-shadow: 2px 2px 0px var(--street-orange), 
+                        4px 4px 0px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* Animation d'entrée */
+        @keyframes streetGlow {
+            0% { box-shadow: 0 0 5px rgba(255, 107, 0, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(255, 107, 0, 0.5); }
+        }
+
+        .profile-img {
+            animation: streetGlow 3s infinite;
         }
     </style>
 </head>
@@ -214,7 +313,13 @@
         <div class="container hero-content">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Leydan Huet" class="profile-img mb-4">
+                    <!-- Image de profil avec style Tag de foot 2 rue -->
+                    <div style="position: relative; display: inline-block;">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Leydan Huet - Tag Foot 2 Rue" class="profile-img mb-4">
+                        <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--street-orange); color: var(--dark-color); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; letter-spacing: 1px; white-space: nowrap;">
+                            TAG FOOT 2 RUE
+                        </div>
+                    </div>
                     <h1 class="display-4 fw-bold mb-3">Leydan Huet</h1>
                     <p class="lead mb-4">Étudiant passionné par l'informatique et à la recherche de nouveaux défis professionnels</p>
                     <div class="inazuma-badge">Esprit d'équipe • Adaptation • Passion</div>
