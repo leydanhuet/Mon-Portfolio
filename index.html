@@ -266,6 +266,48 @@
         .text-muted {
             color: #adb5bd !important;
         }
+        
+        /* Styles pour la veille technologique */
+        .veille-table {
+            background: rgba(38, 38, 38, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        .veille-table table {
+            margin-bottom: 0;
+            color: var(--secondary-color);
+        }
+        .veille-table th {
+            background-color: rgba(0, 102, 255, 0.2);
+            border-bottom: 2px solid var(--pixel-blue);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7rem;
+            color: var(--pixel-blue);
+            padding: 15px;
+            text-transform: uppercase;
+        }
+        .veille-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            vertical-align: top;
+        }
+        .veille-table tr:last-child td {
+            border-bottom: none;
+        }
+        .veille-table tr:hover {
+            background-color: rgba(0, 102, 255, 0.1);
+        }
+        .veille-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            border: 2px solid var(--pixel-blue);
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
+            margin: 20px 0;
+        }
         @media (max-width: 768px) {
             .pdf-thumbnail {
                 width: 150px;
@@ -282,6 +324,10 @@
             }
             .navbar-brand, .nav-link {
                 font-size: 0.6rem;
+            }
+            .veille-table th, .veille-table td {
+                padding: 10px 5px;
+                font-size: 0.8rem;
             }
         }
 
@@ -339,6 +385,7 @@
                     <li class="nav-item"><a class="nav-link" href="#bloc1">Bloc 1</a></li>
                     <li class="nav-item"><a class="nav-link" href="#programmation">Programmation</a></li>
                     <li class="nav-item"><a class="nav-link" href="#bloc3">Bloc 3</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#veille">Veille Technologique</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -499,6 +546,70 @@
         </div>
     </section>
 
+    <!-- Veille Technologique Section -->
+    <section id="veille" class="cv-section">
+        <div class="container">
+            <h2 class="section-title">Veille Technologique</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="cv-container">
+                        <div class="text-center mb-4">
+                            <h4>Actualités sur les GPU Intel</h4>
+                            <img src="image.png" alt="Alerte veille technologique" class="veille-img">
+                        </div>
+                        
+                        <div class="veille-table">
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Source</th>
+                                        <th>Titre</th>
+                                        <th>Description</th>
+                                        <th>Lien</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="current-date"></td>
+                                        <td>Clubic</td>
+                                        <td>ARC B380 : de nouveaux GPU Intel en vue... à destination des consoles portables</td>
+                                        <td>Avec les interrogations sur l'avenir de la division graphique d'Intel, il est de plus en plus question que la génération Battlemage va...</td>
+                                        <td><a href="https://www.clubic.com/actualite-587329-arc-b380-de-nouveaux-gpu-intel-en-vue-a-destination-des-consoles-portables.html" target="_blank" class="btn btn-primary btn-sm">Lire</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="current-date-2"></td>
+                                        <td>Frandroid</td>
+                                        <td>Voici la raison qui pousse AMD à augmenter le prix de ses GPU</td>
+                                        <td>Vers une hausse des prix en cascade sur le marché GPU ? Les cartes graphiques Radeon RX 7000 : des GPU AMD avec un meilleur support.</td>
+                                        <td><a href="#" class="btn btn-primary btn-sm">Lire</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="current-date-3"></td>
+                                        <td>Inverting.com</td>
+                                        <td>Peut-on vraiment utiliser un GPU pendant 6 ans ?</td>
+                                        <td>Beaucoup s'inquiètent de la possibilité d'utiliser des GPU pendant six à sept ans, mais ces inquiétudes sont-elles exagérées ?</td>
+                                        <td><a href="#" class="btn btn-primary btn-sm">Lire</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4>Analyse de la veille technologique</h4>
+                            <p>La veille technologique réalisée se concentre sur l'évolution des GPU, particulièrement les nouvelles solutions d'Intel destinées aux consoles portables. L'article de Clubic met en lumière la stratégie d'Intel avec sa gamme ARC B380, conçue spécifiquement pour le marché des consoles portables.</p>
+                            <p>Cette veille permet de suivre les tendances du marché des composants informatiques et d'anticiper les évolutions technologiques dans le domaine du gaming et de l'informatique mobile.</p>
+                            <div class="alert alert-info mt-3" role="alert">
+                                <i class="fa-solid fa-microchip me-2"></i>
+                                Domaines suivis : GPU, processeurs, cartes graphiques, technologies mobiles, gaming
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer text-center py-4">
         <div class="container">
             <div class="mb-4">
@@ -541,6 +652,18 @@
                             statusElement.className = 'pdf-status status-error';
                         }
                     });
+            });
+            
+            // Script pour afficher la date du jour
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            const today = `${day}/${month}/${year}`;
+            
+            // Mettre à jour toutes les cellules avec la date du jour
+            document.querySelectorAll('#current-date, #current-date-2, #current-date-3').forEach(element => {
+                element.textContent = today;
             });
         });
     </script>
