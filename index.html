@@ -7,665 +7,304 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #ffffff;
-            --accent-color: #0066ff;
-            --dark-color: #0d0d0d;
-            --light-color: #f0f0f0;
-            --pixel-blue: #0066ff;
-            --pixel-dark-blue: #0044cc;
-            --pixel-gray: #333333;
-            --concrete: #8c8c8c;
+            --primary-bg: #0d0d0d;
+            --card-bg: rgba(38, 38, 38, 0.9);
+            --accent-blue: #0066ff;
+            --text-color: #ffffff;
         }
+
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--dark-color); 
-            color: var(--secondary-color); 
-            background-image: 
-                url('10067_88d323d845.jpg'),
-                radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(0, 102, 255, 0.1) 0%, transparent 20%),
-                linear-gradient(to bottom, var(--dark-color) 0%, var(--pixel-gray) 100%); 
-            background-attachment: fixed; 
-            background-size: cover;
-            background-blend-mode: overlay;
-            image-rendering: pixelated;
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: var(--primary-bg); 
+            color: var(--text-color); 
+            /* Fond simplifié mais stylé */
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 20%);
+            background-attachment: fixed;
         }
+
+        /* --- Navigation --- */
         .navbar { 
             background-color: rgba(26, 26, 26, 0.95); 
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid var(--accent-blue);
             backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--pixel-blue);
         } 
         .navbar-brand, .nav-link { 
-            color: var(--secondary-color) !important; 
-            font-weight: 600; 
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.8rem;
-        }
-        .nav-link:hover { 
-            color: var(--accent-color) !important; 
-            text-shadow: 0 0 10px var(--pixel-blue);
-        }
-        .hero-section { 
-            background: 
-                linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.9)),
-                url('10067_88d323d845.jpg') no-repeat center center; 
-            background-size: cover; 
-            padding: 150px 0 100px; 
-            position: relative; 
-            color: white; 
-            text-align: center; 
-            border-bottom: 5px solid var(--pixel-blue);
-        }
-        .hero-content { 
-            position: relative; 
-            z-index: 1; 
-        }
-        .profile-img { 
-            width: 220px; 
-            height: 220px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 5px solid var(--pixel-blue); 
-            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5), 0 5px 15px rgba(0, 0, 0, 0.8); 
-            background: linear-gradient(45deg, var(--pixel-gray), var(--concrete));
-            image-rendering: pixelated;
-        }
-        .section-title { 
-            position: relative; 
-            margin-bottom: 40px; 
-            font-weight: 700; 
-            color: var(--secondary-color); 
-            text-align: center; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 1.5rem;
-        }
-        .section-title::after { 
-            content: ''; 
-            display: block; 
-            width: 100px; 
-            height: 4px; 
-            background: var(--pixel-blue); 
-            margin: 15px auto; 
-            border-radius: 2px; 
-            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
-        }
-        .cv-section { 
-            background: 
-                linear-gradient(135deg, var(--dark-color) 0%, var(--pixel-gray) 100%);
-            padding: 80px 0; 
-            border-top: 1px solid rgba(0, 102, 255, 0.2);
-            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
-        }
-        .cv-container { 
-            background: rgba(38, 38, 38, 0.8); 
-            border-radius: 10px; 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
-            overflow: hidden; 
-            margin-bottom: 40px; 
-            padding: 30px; 
-            text-align: center; 
-            border: 1px solid rgba(0, 102, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        .pdf-thumbnail { 
-            display: inline-block; 
-            margin: 20px; 
-            text-align: center; 
-            transition: transform 0.3s;
-            width: 200px;
-        }
-        .pdf-thumbnail i { 
-            font-size: 80px; 
-            color: var(--pixel-blue); 
-            transition: color 0.3s;
-            text-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
-            filter: drop-shadow(2px 2px 0px var(--pixel-dark-blue));
-        }
-        .pdf-thumbnail h5 { 
-            margin-top: 15px; 
-            font-weight: 600; 
-            color: var(--secondary-color); 
             font-family: 'Press Start 2P', cursive;
             font-size: 0.7rem;
+            color: var(--text-color) !important;
         }
-        .pdf-thumbnail a { 
-            text-decoration: none; 
-            color: inherit; 
-            display: block;
+        .nav-link:hover { 
+            color: var(--accent-blue) !important;
+            text-shadow: 0 0 5px var(--accent-blue);
         }
-        .pdf-thumbnail:hover { 
-            transform: translateY(-10px) scale(1.05);
+
+        /* --- Hero Section --- */
+        .hero-section { 
+            padding: 100px 0 80px; 
+            text-align: center; 
+            border-bottom: 4px solid var(--accent-blue);
+            background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.9));
         }
-        .pdf-thumbnail:hover i { 
-            color: #0088ff; 
-            text-shadow: 0 0 15px rgba(0, 102, 255, 0.7);
+        .profile-img { 
+            width: 200px; 
+            height: 200px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 4px solid var(--accent-blue); 
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.6); 
+            margin-bottom: 20px;
         }
-        .pdf-status {
-            font-size: 10px;
-            margin-top: 5px;
-            padding: 3px 8px;
-            border-radius: 12px;
-            display: inline-block;
+        h1 {
             font-family: 'Press Start 2P', cursive;
+            text-shadow: 3px 3px 0px #0044cc;
+            font-size: 2rem;
         }
-        .status-ok {
-            background-color: rgba(40, 167, 69, 0.2);
-            color: #28a745;
-            border: 1px solid #28a745;
+
+        /* --- Sections Communes --- */
+        .section-title { 
+            margin: 60px 0 40px; 
+            text-align: center; 
+            font-family: 'Press Start 2P', cursive;
+            color: var(--accent-blue);
+            font-size: 1.2rem;
+            text-transform: uppercase;
         }
-        .status-error {
-            background-color: rgba(220, 53, 69, 0.2);
-            color: #dc3545;
-            border: 1px solid #dc3545;
+        
+        .cv-container { 
+            background: var(--card-bg); 
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 0; /* Style carré plus "pixel" */
+            padding: 30px; 
+            margin-bottom: 30px;
+            box-shadow: 5px 5px 0px #003399;
         }
+
+        /* --- Cartes PDF --- */
         .pdf-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-        .btn-download {
-            background-color: var(--pixel-blue);
-            border-color: var(--pixel-blue);
-            color: var(--dark-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            border-radius: 0;
-            box-shadow: 4px 4px 0px var(--pixel-dark-blue);
+        .pdf-item { 
+            width: 160px;
+            text-align: center; 
+            padding: 15px;
+            transition: transform 0.2s;
         }
-        .btn-download:hover {
-            background-color: #0088ff;
-            border-color: #0088ff;
-            color: var(--dark-color);
-            transform: translateY(-2px);
-            box-shadow: 6px 6px 0px var(--pixel-dark-blue);
-        }
-        .btn-primary {
-            background-color: transparent;
-            border-color: var(--pixel-blue);
-            color: var(--pixel-blue);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            border-radius: 0;
-            box-shadow: 4px 4px 0px var(--pixel-dark-blue);
-        }
-        .btn-primary:hover {
-            background-color: var(--pixel-blue);
-            border-color: var(--pixel-blue);
-            color: var(--dark-color);
-            transform: translateY(-2px);
-            box-shadow: 6px 6px 0px var(--pixel-dark-blue);
-        }
-        .inazuma-badge {
-            display: inline-block;
-            background: rgba(0, 102, 255, 0.2);
-            padding: 10px 25px;
-            border-radius: 0;
-            margin: 15px 0;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 102, 255, 0.5);
-            color: var(--pixel-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            box-shadow: 4px 4px 0px var(--pixel-dark-blue);
-        }
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 0;
-            background-color: var(--pixel-blue);
-            color: var(--dark-color);
-            margin: 0 10px;
-            transition: all 0.3s;
-            font-size: 18px;
-            box-shadow: 3px 3px 0px var(--pixel-dark-blue);
-        }
-        .social-icon:hover {
-            background-color: var(--secondary-color);
-            color: var(--dark-color);
+        .pdf-item:hover { 
             transform: translateY(-5px);
-            box-shadow: 5px 5px 0px var(--pixel-dark-blue);
         }
-        .footer {
-            background: var(--dark-color);
-            border-top: 3px solid var(--pixel-blue);
+        .pdf-item i { 
+            font-size: 50px; 
+            color: var(--accent-blue); 
+            margin-bottom: 10px;
+            filter: drop-shadow(2px 2px 0px #003399);
         }
-        .alert {
-            background: rgba(38, 38, 38, 0.8);
-            border: 1px solid rgba(0, 102, 255, 0.3);
-            color: var(--secondary-color);
-            backdrop-filter: blur(10px);
-            border-radius: 0;
+        .pdf-item a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            line-height: 1.5;
+        }
+
+        /* --- Boutons & Badges --- */
+        .btn-pixel {
+            background-color: var(--accent-blue);
+            color: white;
             font-family: 'Press Start 2P', cursive;
             font-size: 0.7rem;
+            padding: 10px 20px;
+            border: none;
+            box-shadow: 3px 3px 0px #003399;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
         }
-        .alert-info {
-            background: rgba(0, 102, 255, 0.1);
-            border-color: rgba(0, 102, 255, 0.5);
+        .btn-pixel:hover {
+            background-color: #3385ff;
+            color: white;
+            transform: translate(-1px, -1px);
         }
-        .text-muted {
-            color: #adb5bd !important;
+        .badge-inazuma {
+            background: rgba(0, 102, 255, 0.2);
+            border: 1px solid var(--accent-blue);
+            padding: 8px 15px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            color: var(--accent-blue);
+            display: inline-block;
+            margin-top: 10px;
         }
-        
-        /* Styles pour la veille technologique */
-        .veille-table {
-            background: rgba(38, 38, 38, 0.8);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 102, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        .veille-table table {
-            margin-bottom: 0;
-            color: var(--secondary-color);
-        }
+
+        /* --- Veille Techno --- */
         .veille-table th {
             background-color: rgba(0, 102, 255, 0.2);
-            border-bottom: 2px solid var(--pixel-blue);
+            color: var(--accent-blue);
             font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            color: var(--pixel-blue);
-            padding: 15px;
-            text-transform: uppercase;
+            font-size: 0.6rem;
+            border-bottom: 2px solid var(--accent-blue);
         }
         .veille-table td {
-            padding: 15px;
-            border-bottom: 1px solid rgba(0, 102, 255, 0.2);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            vertical-align: top;
+            vertical-align: middle;
+            background-color: rgba(0,0,0,0.2);
+            color: #ddd;
         }
-        .veille-table tr:last-child td {
-            border-bottom: none;
-        }
-        .veille-table tr:hover {
-            background-color: rgba(0, 102, 255, 0.1);
-        }
-        .veille-img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            border: 2px solid var(--pixel-blue);
-            box-shadow: 0 0 15px rgba(0, 102, 255, 0.5);
-            margin: 20px 0;
-        }
-        @media (max-width: 768px) {
-            .pdf-thumbnail {
-                width: 150px;
-            }
-            .pdf-thumbnail i {
-                font-size: 60px;
-            }
-            .profile-img {
-                width: 180px;
-                height: 180px;
-            }
-            .section-title {
-                font-size: 1rem;
-            }
-            .navbar-brand, .nav-link {
-                font-size: 0.6rem;
-            }
-            .veille-table th, .veille-table td {
-                padding: 10px 5px;
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Effet pixel sur le titre */
-        .display-4 {
-            text-shadow: 2px 2px 0px var(--pixel-blue), 
-                        4px 4px 0px var(--pixel-dark-blue);
-            letter-spacing: 1px;
-            font-family: 'Press Start 2P', cursive;
-        }
-
-        /* Animation d'entrée */
-        @keyframes pixelGlow {
-            0% { box-shadow: 0 0 5px rgba(0, 102, 255, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(0, 102, 255, 0.8); }
-            100% { box-shadow: 0 0 5px rgba(0, 102, 255, 0.5); }
-        }
-
-        .profile-img {
-            animation: pixelGlow 3s infinite;
-        }
-
-        /* Style pixel pour les textes */
-        .lead {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.8rem;
-            line-height: 1.6;
-        }
-
-        h4 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.9rem;
-            color: var(--pixel-blue);
-        }
-
-        p {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+        footer {
+            border-top: 3px solid var(--accent-blue);
+            background: #000;
+            padding: 20px;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-futbol me-2"></i>Leydan Huet</a>
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-bolt me-2"></i>Leydan Huet</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#bloc1">Bloc 1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#programmation">Programmation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#bloc3">Bloc 3</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#veille">Veille Technologique</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projets">Projets & PDF</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#veille">Veille</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="container hero-content">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <div style="position: relative; display: inline-block;">
-                        <img src="747161c0d9e604807c2ae8c7e6803d87.jpg" alt="Leydan Huet" class="profile-img mb-4">
-                    </div>
-                    <h1 class="display-4 fw-bold mb-3">Leydan Huet</h1>
-                    <p class="lead mb-4">Étudiant passionné par l'informatique et à la recherche de nouveaux défis professionnels</p>
-                    <div class="inazuma-badge">Amitié • Respect • Solidarité</div>
-                    <div class="mt-4">
-                        <a href="#contact" class="btn btn-primary me-2"><i class="fa-regular fa-envelope me-2"></i>Me contacter</a>
-                        <a href="#bloc1" class="btn btn-download"><i class="fa-solid fa-download me-2"></i>Voir mes PDF</a>
-                    </div>
+        <div class="container">
+            <img src="https://placehold.co/200x200/0066ff/ffffff?text=LH" alt="Leydan Huet" class="profile-img">
+            <h1 class="mb-3">Leydan Huet</h1>
+            <p class="lead mb-4">Étudiant en informatique • SIO</p>
+            <div class="badge-inazuma">Amitié • Respect • Solidarité</div>
+            <div class="mt-4">
+                <a href="#contact" class="btn-pixel">Me contacter</a>
+                <a href="#projets" class="btn-pixel">Mes Projets</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="container">
+        
+        <h2 class="section-title">Bloc 1 : Supports</h2>
+        <div class="cv-container">
+            <div class="pdf-grid">
+                <div class="pdf-item">
+                    <a href="CV_Leydan_Huet.pdf" target="_blank">
+                        <i class="fa-regular fa-file-pdf"></i><br>CV Leydan
+                    </a>
+                </div>
+                <div class="pdf-item">
+                    <a href="compte_rendu_connexion.pdf" target="_blank">
+                        <i class="fa-regular fa-file-pdf"></i><br>CR Connexion
+                    </a>
+                </div>
+                <div class="pdf-item">
+                    <a href="Creation_portfolio.pdf" target="_blank">
+                        <i class="fa-regular fa-file-pdf"></i><br>Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Programmation</h2>
+        <div class="cv-container">
+            <div class="pdf-grid">
+                <div class="pdf-item">
+                    <a href="Compte_rendu_Java.pdf" target="_blank">
+                        <i class="fa-brands fa-java"></i><br>Java
+                    </a>
+                </div>
+                <div class="pdf-item">
+                    <a href="Compte_rendu_HTML.pdf" target="_blank">
+                        <i class="fa-brands fa-html5"></i><br>HTML / CSS
+                    </a>
+                </div>
+                <div class="pdf-item">
+                    <a href="Logiciels_diag.pdf" target="_blank">
+                        <i class="fa-solid fa-stethoscope"></i><br>Diagnostic
+                    </a>
+                </div>
+            </div>
+            <div class="alert alert-info mt-3" style="background: rgba(0, 102, 255, 0.1); border-color: var(--accent-blue); color: white;">
+                <small><i class="fa-solid fa-code me-2"></i>Compétences : Java, HTML5, CSS3, Eclipse IDE</small>
+            </div>
+        </div>
+
+        <h2 class="section-title">Cybersécurité (Bloc 3)</h2>
+        <div class="cv-container">
+            <div class="pdf-grid">
+                <div class="pdf-item">
+                    <a href="Exo_cyb.pdf" target="_blank">
+                        <i class="fa-solid fa-shield-halved"></i><br>Exercice Cyber
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bloc 1 Section -->
-    <section id="bloc1" class="cv-section">
-        <div class="container">
-            <h2 class="section-title">Bloc 1</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="cv-container">
-                        <div class="pdf-grid">
-                            <div class="pdf-thumbnail">
-                                <a href="CV_Leydan_Huet.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>CV - Leydan Huet</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                            <div class="pdf-thumbnail">
-                                <a href="compte_rendu_connexion.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Compte rendu Connexion</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                            <div class="pdf-thumbnail">
-                                <a href="Creation_portfolio.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Création Portfolio</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section id="veille" class="container">
+        <h2 class="section-title">Veille Technologique</h2>
+        <div class="cv-container">
+            <h4 style="font-family: 'Press Start 2P'; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 20px;">
+                Sujet : Évolution des GPU (Intel & AMD)
+            </h4>
+            
+            <div class="table-responsive">
+                <table class="table table-dark table-hover veille-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Source</th>
+                            <th>Sujet</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>25/11/2025</td>
+                            <td>Clubic</td>
+                            <td>Nouveaux GPU Intel ARC B380 pour consoles</td>
+                            <td><a href="#" class="btn-pixel" style="padding: 5px 10px; font-size: 0.5rem;">Lire</a></td>
+                        </tr>
+                        <tr>
+                            <td>20/11/2025</td>
+                            <td>Frandroid</td>
+                            <td>Hausse des prix des GPU AMD</td>
+                            <td><a href="#" class="btn-pixel" style="padding: 5px 10px; font-size: 0.5rem;">Lire</a></td>
+                        </tr>
+                        <tr>
+                            <td>15/11/2025</td>
+                            <td>Inverting</td>
+                            <td>Durée de vie d'un GPU : Mythe ou réalité ?</td>
+                            <td><a href="#" class="btn-pixel" style="padding: 5px 10px; font-size: 0.5rem;">Lire</a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- Programmation Section -->
-    <section id="programmation" class="cv-section">
-        <div class="container">
-            <h2 class="section-title">Programmation</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="cv-container">
-                        <div class="pdf-grid">
-                            <div class="pdf-thumbnail">
-                                <a href="Compte_rendu_Java_premier_essai.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Compte rendu Java</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                            <div class="pdf-thumbnail">
-                                <a href="Compte_rendu_HUET_Leydan_SIO1.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Compte rendu SIO1</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                            <div class="pdf-thumbnail">
-                                <a href="Compte_rendu_Les_logiciels_de_diag.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Logiciels de Diagnostic</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                            <div class="pdf-thumbnail">
-                                <a href="compte_rendue_sur_appli_de_capture_decran_Leydan_HUET.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Applications Capture d'écran</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                            <div class="pdf-thumbnail">
-                                <a href="Compte_rendue_Les_bases_du_CSS.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Les bases du CSS</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                            <div class="pdf-thumbnail">
-                                <a href="Compte_rendu_HTML_10_09_Leydan_HUET.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Compte rendu HTML</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <h4>Description des projets de programmation</h4>
-                            <p>Ces comptes rendus présentent mes expériences d'apprentissage en programmation et développement web, incluant Java, HTML, CSS, ainsi que des outils informatiques comme les logiciels de diagnostic et les applications de capture d'écran.</p>
-                            <div class="alert alert-info mt-3" role="alert">
-                                <i class="fa-brands fa-java me-2"></i>
-                                <i class="fa-brands fa-html5 me-2"></i>
-                                <i class="fa-brands fa-css3-alt me-2"></i>
-                                Technologies utilisées : Java, HTML, CSS, Eclipse IDE, outils informatiques
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <footer class="text-center">
+        <div class="mb-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
         </div>
-    </section>
-
-    <!-- Bloc 3 Section -->
-    <section id="bloc3" class="cv-section">
-        <div class="container">
-            <h2 class="section-title">Bloc 3</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="cv-container">
-                        <div class="pdf-grid">
-                            <div class="pdf-thumbnail">
-                                <a href="Leydan HUET Exo cyb.pdf" target="_blank">
-                                    <i class="fa-regular fa-file-pdf"></i>
-                                    <h5>Exercice Cybersécurité</h5>
-                                    <span class="pdf-status status-ok">Disponible</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <h4>Description du Bloc 3</h4>
-                            <p>Cette section présente les travaux et exercices réalisés dans le cadre du Bloc 3, incluant notamment des exercices pratiques en cybersécurité.</p>
-                            <div class="alert alert-info mt-3" role="alert">
-                                <i class="fa-solid fa-shield-halved me-2"></i>
-                                Technologies utilisées : Cybersécurité, protection des données, mesures de sécurité
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Veille Technologique Section -->
-    <section id="veille" class="cv-section">
-        <div class="container">
-            <h2 class="section-title">Veille Technologique</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="cv-container">
-                        <div class="text-center mb-4">
-                            <h4>Actualités sur les GPU Intel</h4>
-                            <img src="image.png" alt="Alerte veille technologique" class="veille-img">
-                        </div>
-                        
-                        <div class="veille-table">
-                            <table class="table table-dark table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Source</th>
-                                        <th>Titre</th>
-                                        <th>Description</th>
-                                        <th>Lien</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td id="current-date"></td>
-                                        <td>Clubic</td>
-                                        <td>ARC B380 : de nouveaux GPU Intel en vue... à destination des consoles portables</td>
-                                        <td>Avec les interrogations sur l'avenir de la division graphique d'Intel, il est de plus en plus question que la génération Battlemage va...</td>
-                                        <td><a href="https://www.clubic.com/actualite-587329-arc-b380-de-nouveaux-gpu-intel-en-vue-a-destination-des-consoles-portables.html" target="_blank" class="btn btn-primary btn-sm">Lire</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="current-date-2"></td>
-                                        <td>Frandroid</td>
-                                        <td>Voici la raison qui pousse AMD à augmenter le prix de ses GPU</td>
-                                        <td>Vers une hausse des prix en cascade sur le marché GPU ? Les cartes graphiques Radeon RX 7000 : des GPU AMD avec un meilleur support.</td>
-                                        <td><a href="#" class="btn btn-primary btn-sm">Lire</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="current-date-3"></td>
-                                        <td>Inverting.com</td>
-                                        <td>Peut-on vraiment utiliser un GPU pendant 6 ans ?</td>
-                                        <td>Beaucoup s'inquiètent de la possibilité d'utiliser des GPU pendant six à sept ans, mais ces inquiétudes sont-elles exagérées ?</td>
-                                        <td><a href="#" class="btn btn-primary btn-sm">Lire</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <div class="mt-4">
-                            <h4>Analyse de la veille technologique</h4>
-                            <p>La veille technologique réalisée se concentre sur l'évolution des GPU, particulièrement les nouvelles solutions d'Intel destinées aux consoles portables. L'article de Clubic met en lumière la stratégie d'Intel avec sa gamme ARC B380, conçue spécifiquement pour le marché des consoles portables.</p>
-                            <p>Cette veille permet de suivre les tendances du marché des composants informatiques et d'anticiper les évolutions technologiques dans le domaine du gaming et de l'informatique mobile.</p>
-                            <div class="alert alert-info mt-3" role="alert">
-                                <i class="fa-solid fa-microchip me-2"></i>
-                                Domaines suivis : GPU, processeurs, cartes graphiques, technologies mobiles, gaming
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer text-center py-4">
-        <div class="container">
-            <div class="mb-4">
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            </div>
-            <p class="mb-2">@Kirayano Leydan</p>
-            <p class="mb-0">© 2025 Leydan Huet. Tous droits réservés.</p>
-        </div>
+        <p class="small mb-0" style="font-family: 'Press Start 2P'; font-size: 0.5rem;">© 2025 Leydan Huet - Inazuma Spirit</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Script pour vérifier la disponibilité des PDF
-        document.addEventListener('DOMContentLoaded', function() {
-            const pdfLinks = document.querySelectorAll('.pdf-thumbnail a');
-            
-            pdfLinks.forEach(link => {
-                const url = link.getAttribute('href');
-                console.log(`Vérification du fichier: ${url}`);
-                
-                // Vérification simple du fichier
-                fetch(url, { method: 'HEAD' })
-                    .then(response => {
-                        if (!response.ok) {
-                            const statusElement = link.querySelector('.pdf-status');
-                            if (statusElement) {
-                                statusElement.textContent = 'Fichier manquant';
-                                statusElement.className = 'pdf-status status-error';
-                            }
-                        }
-                    })
-                    .catch(error => {
-                        console.log(`Fichier non trouvé: ${url}`);
-                        const statusElement = link.querySelector('.pdf-status');
-                        if (statusElement) {
-                            statusElement.textContent = 'Fichier manquant';
-                            statusElement.className = 'pdf-status status-error';
-                        }
-                    });
-            });
-            
-            // Script pour afficher la date du jour
-            const now = new Date();
-            const day = String(now.getDate()).padStart(2, '0');
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const year = now.getFullYear();
-            const today = `${day}/${month}/${year}`;
-            
-            // Mettre à jour toutes les cellules avec la date du jour
-            document.querySelectorAll('#current-date, #current-date-2, #current-date-3').forEach(element => {
-                element.textContent = today;
-            });
-        });
-    </script>
 </body>
 </html>
