@@ -20,9 +20,13 @@
             font-family: 'Segoe UI', sans-serif; 
             background-color: var(--primary-bg); 
             color: var(--text-color); 
-            /* Fond simplifié mais stylé */
-            background-image: radial-gradient(circle at 10% 20%, rgba(0, 102, 255, 0.1) 0%, transparent 20%);
+            /* IMAGE DE FOND : Utilisation du fichier JPG de ta liste */
+            background-image: 
+                linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.9)),
+                url('10067_88d323d845.jpg');
             background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
         /* --- Navigation --- */
@@ -46,7 +50,7 @@
             padding: 100px 0 80px; 
             text-align: center; 
             border-bottom: 4px solid var(--accent-blue);
-            background: linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.9));
+            background: transparent;
         }
         .profile-img { 
             width: 200px; 
@@ -76,7 +80,7 @@
         .cv-container { 
             background: var(--card-bg); 
             border: 1px solid rgba(0, 102, 255, 0.3);
-            border-radius: 0; /* Style carré plus "pixel" */
+            border-radius: 0; 
             padding: 30px; 
             margin-bottom: 30px;
             box-shadow: 5px 5px 0px #003399;
@@ -90,7 +94,7 @@
             gap: 20px;
         }
         .pdf-item { 
-            width: 160px;
+            width: 180px; /* Un peu plus large pour les noms longs */
             text-align: center; 
             padding: 15px;
             transition: transform 0.2s;
@@ -107,9 +111,11 @@
         .pdf-item a {
             text-decoration: none;
             color: white;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.6rem;
+            font-family: 'Segoe UI', sans-serif; /* Plus lisible pour les noms longs */
+            font-weight: bold;
+            font-size: 0.8rem;
             line-height: 1.5;
+            word-wrap: break-word;
         }
 
         /* --- Boutons & Badges --- */
@@ -174,7 +180,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projets">Projets & PDF</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projets">Documents</a></li>
                     <li class="nav-item"><a class="nav-link" href="#veille">Veille</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -184,25 +190,25 @@
 
     <section id="home" class="hero-section">
         <div class="container">
-            <img src="https://placehold.co/200x200/0066ff/ffffff?text=LH" alt="Leydan Huet" class="profile-img">
+            <img src="747161c0d9e604807c2ae8c7e6803d87.jpg" alt="Leydan Huet" class="profile-img">
             <h1 class="mb-3">Leydan Huet</h1>
             <p class="lead mb-4">Étudiant en informatique • SIO</p>
             <div class="badge-inazuma">Amitié • Respect • Solidarité</div>
             <div class="mt-4">
                 <a href="#contact" class="btn-pixel">Me contacter</a>
-                <a href="#projets" class="btn-pixel">Mes Projets</a>
+                <a href="#projets" class="btn-pixel">Mes Dossiers</a>
             </div>
         </div>
     </section>
 
     <section id="projets" class="container">
         
-        <h2 class="section-title">Bloc 1 : Supports</h2>
+        <h2 class="section-title">Bloc 1 : Projets & Rapports</h2>
         <div class="cv-container">
             <div class="pdf-grid">
                 <div class="pdf-item">
-                    <a href="CV_Leydan_Huet.pdf" target="_blank">
-                        <i class="fa-regular fa-file-pdf"></i><br>CV Leydan
+                    <a href="Creation_portfolio.pdf" target="_blank">
+                        <i class="fa-regular fa-file-pdf"></i><br>Création Portfolio
                     </a>
                 </div>
                 <div class="pdf-item">
@@ -210,35 +216,37 @@
                         <i class="fa-regular fa-file-pdf"></i><br>CR Connexion
                     </a>
                 </div>
-                <div class="pdf-item">
-                    <a href="Creation_portfolio.pdf" target="_blank">
-                        <i class="fa-regular fa-file-pdf"></i><br>Portfolio
+                 <div class="pdf-item">
+                    <a href="Compte_rendu_HUET_Leydan_SIO1.pdf" target="_blank">
+                        <i class="fa-regular fa-file-pdf"></i><br>CR Général SIO1
                     </a>
                 </div>
             </div>
         </div>
 
-        <h2 class="section-title">Programmation</h2>
+        <h2 class="section-title">Programmation & Technique</h2>
         <div class="cv-container">
             <div class="pdf-grid">
                 <div class="pdf-item">
-                    <a href="Compte_rendu_Java.pdf" target="_blank">
-                        <i class="fa-brands fa-java"></i><br>Java
+                    <a href="Compte_rendu_Java_premier_essai.pdf" target="_blank">
+                        <i class="fa-brands fa-java"></i><br>Premier Essai Java
                     </a>
                 </div>
                 <div class="pdf-item">
-                    <a href="Compte_rendu_HTML.pdf" target="_blank">
-                        <i class="fa-brands fa-html5"></i><br>HTML / CSS
+                    <a href="Compte_rendu_HTML_10_09_Leydan_HUET.pdf" target="_blank">
+                        <i class="fa-brands fa-html5"></i><br>Rapport HTML
                     </a>
                 </div>
                 <div class="pdf-item">
-                    <a href="Logiciels_diag.pdf" target="_blank">
-                        <i class="fa-solid fa-stethoscope"></i><br>Diagnostic
+                    <a href="Compte_rendue_Les_bases_du_CSS.pdf" target="_blank">
+                        <i class="fa-brands fa-css3-alt"></i><br>Bases du CSS
                     </a>
                 </div>
-            </div>
-            <div class="alert alert-info mt-3" style="background: rgba(0, 102, 255, 0.1); border-color: var(--accent-blue); color: white;">
-                <small><i class="fa-solid fa-code me-2"></i>Compétences : Java, HTML5, CSS3, Eclipse IDE</small>
+                <div class="pdf-item">
+                    <a href="Compte_rendu_Les_logiciels_de_diag.pdf" target="_blank">
+                        <i class="fa-solid fa-stethoscope"></i><br>Logiciels Diag
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -246,7 +254,7 @@
         <div class="cv-container">
             <div class="pdf-grid">
                 <div class="pdf-item">
-                    <a href="Exo_cyb.pdf" target="_blank">
+                    <a href="Leydan HUET Exo cyb.pdf" target="_blank">
                         <i class="fa-solid fa-shield-halved"></i><br>Exercice Cyber
                     </a>
                 </div>
@@ -258,7 +266,7 @@
         <h2 class="section-title">Veille Technologique</h2>
         <div class="cv-container">
             <h4 style="font-family: 'Press Start 2P'; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 20px;">
-                Sujet : Évolution des GPU (Intel & AMD)
+                Sujet : Évolution des GPU
             </h4>
             
             <div class="table-responsive">
@@ -275,19 +283,13 @@
                         <tr>
                             <td>25/11/2025</td>
                             <td>Clubic</td>
-                            <td>Nouveaux GPU Intel ARC B380 pour consoles</td>
+                            <td>Nouveaux GPU Intel ARC B380</td>
                             <td><a href="#" class="btn-pixel" style="padding: 5px 10px; font-size: 0.5rem;">Lire</a></td>
                         </tr>
                         <tr>
                             <td>20/11/2025</td>
                             <td>Frandroid</td>
-                            <td>Hausse des prix des GPU AMD</td>
-                            <td><a href="#" class="btn-pixel" style="padding: 5px 10px; font-size: 0.5rem;">Lire</a></td>
-                        </tr>
-                        <tr>
-                            <td>15/11/2025</td>
-                            <td>Inverting</td>
-                            <td>Durée de vie d'un GPU : Mythe ou réalité ?</td>
+                            <td>Hausse des prix AMD</td>
                             <td><a href="#" class="btn-pixel" style="padding: 5px 10px; font-size: 0.5rem;">Lire</a></td>
                         </tr>
                     </tbody>
@@ -300,9 +302,8 @@
         <div class="mb-3">
             <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
             <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
         </div>
-        <p class="small mb-0" style="font-family: 'Press Start 2P'; font-size: 0.5rem;">© 2025 Leydan Huet - Inazuma Spirit</p>
+        <p class="small mb-0" style="font-family: 'Press Start 2P'; font-size: 0.5rem;">© 2025 Leydan Huet</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
