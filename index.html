@@ -20,15 +20,20 @@
             font-family: 'Segoe UI', sans-serif; 
             background-color: var(--primary-bg); 
             color: var(--text-color); 
-            /* Fond de secours si l'image ne charge pas : Gris très foncé */
-            background-image: linear-gradient(rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.9));
-            min-height: 100vh;
+            /* IMAGE DE FOND : Utilisation du fichier JPG de ta liste */
+            background-image: 
+                linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.9)),
+                url('10067_88d323d845.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
         }
 
         /* --- Navigation --- */
         .navbar { 
             background-color: rgba(26, 26, 26, 0.95); 
             border-bottom: 2px solid var(--accent-blue);
+            backdrop-filter: blur(10px);
         } 
         .navbar-brand, .nav-link { 
             font-family: 'Press Start 2P', cursive;
@@ -37,6 +42,7 @@
         }
         .nav-link:hover { 
             color: var(--accent-blue) !important;
+            text-shadow: 0 0 5px var(--accent-blue);
         }
 
         /* --- Hero Section --- */
@@ -44,24 +50,17 @@
             padding: 100px 0 80px; 
             text-align: center; 
             border-bottom: 4px solid var(--accent-blue);
+            background: transparent;
         }
-        
-        /* Cadre photo générique si l'image manque */
-        .profile-img-placeholder { 
+        .profile-img { 
             width: 200px; 
             height: 200px; 
             border-radius: 50%; 
-            background-color: #333;
+            object-fit: cover; 
             border: 4px solid var(--accent-blue); 
             box-shadow: 0 0 15px rgba(0, 102, 255, 0.6); 
-            margin: 0 auto 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--accent-blue);
+            margin-bottom: 20px;
         }
-
         h1 {
             font-family: 'Press Start 2P', cursive;
             text-shadow: 3px 3px 0px #0044cc;
@@ -81,11 +80,45 @@
         .cv-container { 
             background: var(--card-bg); 
             border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 0; 
             padding: 30px; 
             margin-bottom: 30px;
             box-shadow: 5px 5px 0px #003399;
         }
 
+        /* --- Cartes PDF --- */
+        .pdf-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .pdf-item { 
+            width: 180px; /* Un peu plus large pour les noms longs */
+            text-align: center; 
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+        .pdf-item:hover { 
+            transform: translateY(-5px);
+        }
+        .pdf-item i { 
+            font-size: 50px; 
+            color: var(--accent-blue); 
+            margin-bottom: 10px;
+            filter: drop-shadow(2px 2px 0px #003399);
+        }
+        .pdf-item a {
+            text-decoration: none;
+            color: white;
+            font-family: 'Segoe UI', sans-serif; /* Plus lisible pour les noms longs */
+            font-weight: bold;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        /* --- Boutons & Badges --- */
         .btn-pixel {
             background-color: var(--accent-blue);
             color: white;
@@ -98,12 +131,11 @@
             display: inline-block;
             margin: 5px;
         }
-        
-        .pdf-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .pdf-item { width: 180px; text-align: center; padding: 15px; }
-        .pdf-item i { font-size: 50px; color: var(--accent-blue); margin-bottom: 10px; }
-        .pdf-item a { text-decoration: none; color: white; font-weight: bold; }
-
+        .btn-pixel:hover {
+            background-color: #3385ff;
+            color: white;
+            transform: translate(-1px, -1px);
+        }
         .badge-inazuma {
             background: rgba(0, 102, 255, 0.2);
             border: 1px solid var(--accent-blue);
@@ -112,10 +144,32 @@
             font-size: 0.6rem;
             color: var(--accent-blue);
             display: inline-block;
-            margin: 5px;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+
+        /* --- Veille Techno --- */
+        .veille-table th {
+            background-color: rgba(0, 102, 255, 0.2);
+            color: var(--accent-blue);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            border-bottom: 2px solid var(--accent-blue);
+            vertical-align: middle;
+        }
+        .veille-table td {
+            vertical-align: middle;
+            background-color: rgba(0,0,0,0.2);
+            color: #ddd;
+            border-color: rgba(255,255,255,0.1);
         }
         
-        footer { border-top: 3px solid var(--accent-blue); background: #000; padding: 20px; margin-top: 50px; }
+        footer {
+            border-top: 3px solid var(--accent-blue);
+            background: #000;
+            padding: 20px;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -131,6 +185,7 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projets">Documents</a></li>
                     <li class="nav-item"><a class="nav-link" href="#veille">Veille</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -138,25 +193,74 @@
 
     <section id="home" class="hero-section">
         <div class="container">
-            <div class="profile-img-placeholder">
-                <i class="fa-solid fa-user"></i>
-            </div>
-            
+            <img src="747161c0d9e604807c2ae8c7e6803d87.jpg" alt="Leydan Huet" class="profile-img">
             <h1 class="mb-3">Leydan Huet</h1>
             <p class="lead mb-4">Étudiant en informatique • SIO</p>
             <div class="badge-inazuma">Amitié • Respect • Solidarité</div>
             <div class="mt-4">
+                <a href="#contact" class="btn-pixel">Me contacter</a>
                 <a href="#projets" class="btn-pixel">Mes Dossiers</a>
             </div>
         </div>
     </section>
 
     <section id="projets" class="container">
+        
         <h2 class="section-title">Bloc 1 : Projets & Rapports</h2>
         <div class="cv-container">
             <div class="pdf-grid">
-                <div class="pdf-item"><a href="#"><i class="fa-regular fa-file-pdf"></i><br>Portfolio</a></div>
-                <div class="pdf-item"><a href="#"><i class="fa-regular fa-file-pdf"></i><br>CR Connexion</a></div>
+                <div class="pdf-item">
+                    <a href="Creation_portfolio.pdf" target="_blank">
+                        <i class="fa-regular fa-file-pdf"></i><br>Création Portfolio
+                    </a>
+                </div>
+                <div class="pdf-item">
+                    <a href="compte_rendu_connexion.pdf" target="_blank">
+                        <i class="fa-regular fa-file-pdf"></i><br>CR Connexion
+                    </a>
+                </div>
+                 <div class="pdf-item">
+                    <a href="Compte_rendu_HUET_Leydan_SIO1.pdf" target="_blank">
+                        <i class="fa-regular fa-file-pdf"></i><br>CR Général SIO1
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Programmation & Technique</h2>
+        <div class="cv-container">
+            <div class="pdf-grid">
+                <div class="pdf-item">
+                    <a href="Compte_rendu_Java_premier_essai.pdf" target="_blank">
+                        <i class="fa-brands fa-java"></i><br>Premier Essai Java
+                    </a>
+                </div>
+                <div class="pdf-item">
+                    <a href="Compte_rendu_HTML_10_09_Leydan_HUET.pdf" target="_blank">
+                        <i class="fa-brands fa-html5"></i><br>Rapport HTML
+                    </a>
+                </div>
+                <div class="pdf-item">
+                    <a href="Compte_rendue_Les_bases_du_CSS.pdf" target="_blank">
+                        <i class="fa-brands fa-css3-alt"></i><br>Bases du CSS
+                    </a>
+                </div>
+                <div class="pdf-item">
+                    <a href="Compte_rendu_Les_logiciels_de_diag.pdf" target="_blank">
+                        <i class="fa-solid fa-stethoscope"></i><br>Logiciels Diag
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Cybersécurité (Bloc 3)</h2>
+        <div class="cv-container">
+            <div class="pdf-grid">
+                <div class="pdf-item">
+                    <a href="Leydan HUET Exo cyb.pdf" target="_blank">
+                        <i class="fa-solid fa-shield-halved"></i><br>Exercice Cyber
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -164,39 +268,112 @@
     <section id="veille" class="container">
         <h2 class="section-title">Veille Technologique</h2>
         
-        <div class="cv-container">
+        <div class="cv-container mb-4">
             <h4 style="font-family: 'Press Start 2P'; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 20px;">
-                <i class="fa-solid fa-microchip me-2"></i>Sujet : GPU & IA
+                <i class="fa-solid fa-microchip me-2"></i>Sujet : Évolution des GPU & Marché Graphique
             </h4>
-            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-white-50 small mb-md-0">
+                        <strong>Objectif :</strong> Suivre les innovations hardware (NVIDIA, AMD, Intel), l'impact de l'IA sur le développement des puces et l'évolution tarifaire du marché mondial.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-inline-block">
+                        <span class="badge-inazuma"><i class="fa-solid fa-rss me-1"></i>Feedly (Flux RSS)</span>
+                        <span class="badge-inazuma"><i class="fa-brands fa-google me-1"></i>Google Alerts</span>
+                        <span class="badge-inazuma"><i class="fa-solid fa-envelope me-1"></i>Newsletters</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cv-container">
+            <h5 class="text-white mb-3" style="font-family: 'Segoe UI'; border-left: 3px solid var(--accent-blue); padding-left: 10px;">
+                Historique des relevés pertinents
+            </h5>
             <div class="table-responsive">
-                <table class="table table-dark table-hover align-middle">
+                <table class="table table-dark table-hover veille-table align-middle">
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Sujet</th>
-                            <th>Lien</th>
+                            <th scope="col" style="width: 15%">Date / Source</th>
+                            <th scope="col" style="width: 10%">Catégorie</th>
+                            <th scope="col" style="width: 25%">Sujet</th>
+                            <th scope="col" style="width: 40%">Analyse & Impact</th>
+                            <th scope="col" style="width: 10%">Lien</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>05/12/2025</td>
-                            <td>Rumeurs NVIDIA RTX 5090</td>
-                            <td><a href="https://www.tomshardware.com/pc-components/gpus/nvidia-blackwell-rtx-50-series-gpus-everything-we-know" target="_blank" class="btn-pixel">Voir</a></td>
+                            <td>
+                                <div class="fw-bold text-white">05/12/2025</div>
+                                <div class="small text-muted">Tom's Hardware</div>
+                            </td>
+                            <td><span class="badge bg-primary">Innovation</span></td>
+                            <td>Rumeurs NVIDIA RTX 5090 (Blackwell)</td>
+                            <td class="small text-white-50">
+                                Nouvelle architecture mémoire GDDR7. Impact majeur prévu sur la consommation énergétique (+600W) et les performances en IA générative locale.
+                            </td>
+                            <td><a href="https://www.tomshardware.com/pc-components/gpus/nvidia-blackwell-rtx-50-series-gpus-everything-we-know" target="_blank" class="btn-pixel" style="padding: 5px 8px; font-size: 0.4rem;" title="Voir la source"><i class="fa-solid fa-link"></i></a></td>
                         </tr>
+                        
                         <tr>
-                            <td>25/11/2025</td>
-                            <td>Intel ARC Battlemage</td>
-                            <td><a href="https://www.clubic.com/actualite-545987-tout-savoir-sur-les-cartes-arc-battlemage-b570-et-b580-intel-devoile-designs-specifications-et-prix.html" target="_blank" class="btn-pixel">Voir</a></td>
+                            <td>
+                                <div class="fw-bold text-white">25/11/2025</div>
+                                <div class="small text-muted">Clubic</div>
+                            </td>
+                            <td><span class="badge bg-success">Marché</span></td>
+                            <td>Lancement Intel ARC Battlemage</td>
+                            <td class="small text-white-50">
+                                Intel confirme sa stratégie sur l'entrée de gamme avec les séries B. Pression concurrentielle accrue sur les prix des segments budget face à AMD.
+                            </td>
+                            <td><a href="https://www.clubic.com/actualite-545987-tout-savoir-sur-les-cartes-arc-battlemage-b570-et-b580-intel-devoile-designs-specifications-et-prix.html" target="_blank" class="btn-pixel" style="padding: 5px 8px; font-size: 0.4rem;" title="Voir la source"><i class="fa-solid fa-link"></i></a></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-white">10/11/2025</div>
+                                <div class="small text-muted">Pause Hardware</div>
+                            </td>
+                            <td><span class="badge bg-info">Soft/IA</span></td>
+                            <td>Mise à jour AMD FSR 4.0</td>
+                            <td class="small text-white-50">
+                                AMD intègre enfin des cœurs IA dédiés pour l'upscaling, rattrapant son retard sur le DLSS de NVIDIA. Changement de paradigme logiciel pour les rouges.
+                            </td>
+                            <td><a href="https://pausehardware.com/amd-fsr-4-et-hypr-rx-rx-9070-xt-rdna-4/" target="_blank" class="btn-pixel" style="padding: 5px 8px; font-size: 0.4rem;" title="Voir la source"><i class="fa-solid fa-link"></i></a></td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-white">15/10/2025</div>
+                                <div class="small text-muted">Frandroid</div>
+                            </td>
+                            <td><span class="badge bg-warning text-dark">Juridique</span></td>
+                            <td>Restrictions Export USA/Chine</td>
+                            <td class="small text-white-50">
+                                Nouvelles limitations sur l'export des GPU haute performance (RTX 4090/5090). Impact direct sur la disponibilité mondiale et les stocks pro.
+                            </td>
+                            <td><a href="https://www.frandroid.com/produits-android/hardware/1831853_guerre-des-puces-les-etats-unis-veulent-bloquer-les-gpu-nvidia-rtx-4090-en-chine" target="_blank" class="btn-pixel" style="padding: 5px 8px; font-size: 0.4rem;" title="Voir la source"><i class="fa-solid fa-link"></i></a></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            <div class="mt-4 p-3" style="background: rgba(0, 102, 255, 0.1); border-left: 4px solid var(--accent-blue);">
+                <h5 style="font-size: 0.9rem; font-weight: bold; color: var(--accent-blue);">Synthèse des tendances T4 2025</h5>
+                <p class="small mb-0" style="color: #ccc;">
+                    L'actualité récente confirme un déplacement de la compétition purement "rastérisation" vers l'efficacité des traitements IA (Upscaling, Frame Generation). Alors que NVIDIA domine le haut de gamme, la bataille se joue désormais sur le rapport performance/watt et l'accessibilité du milieu de gamme avec le retour agressif d'Intel (Battlemage) et la réponse d'AMD (RDNA 4).
+                </p>
+            </div>
         </div>
     </section>
 
-    <footer class="text-center">
-        <p class="small mb-0 text-white">© 2025 Leydan Huet</p>
+    <footer class="text-center" id="contact">
+        <div class="mb-3">
+            <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
+        </div>
+        <p class="small mb-0" style="font-family: 'Press Start 2P'; font-size: 0.5rem;">© 2025 Leydan Huet</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
