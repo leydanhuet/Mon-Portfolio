@@ -17,12 +17,16 @@
         }
 
         body { 
-            font-family: 'Segoe UI', sans-serif; 
+            /* CHANGEMENT PRINCIPAL ICI : On applique la police style "titre" à tout le corps */
+            font-family: 'Press Start 2P', cursive; 
+            /* AJUSTEMENT CRUCIAL : On réduit la taille de base car cette police est très grande */
+            font-size: 0.6rem; 
+            line-height: 1.8; /* Plus d'espace entre les lignes pour que ça reste lisible */
             background-color: var(--primary-bg); 
             color: var(--text-color); 
             background-image: 
                 linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.9)),
-                url('Fond.jpg');
+                url('10067_88d323d845.jpg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -35,6 +39,7 @@
             backdrop-filter: blur(10px);
         } 
         .navbar-brand, .nav-link { 
+            /* La police est déjà héritée du body, mais on garde pour forcer */
             font-family: 'Press Start 2P', cursive;
             font-size: 0.7rem;
             color: var(--text-color) !important;
@@ -61,16 +66,19 @@
             margin-bottom: 20px;
         }
         h1 {
-            font-family: 'Press Start 2P', cursive;
+            /* Pas besoin de redéfinir la font-family, c'est hérité */
             text-shadow: 3px 3px 0px #0044cc;
-            font-size: 2rem;
+            font-size: 2rem; /* Taille spécifique pour le gros titre */
+        }
+        .lead {
+             font-size: 0.8rem; /* Ajustement pour le sous-titre */
         }
 
         /* --- Sections Communes --- */
         .section-title { 
             margin: 60px 0 40px; 
             text-align: center; 
-            font-family: 'Press Start 2P', cursive;
+            /* font-family: 'Press Start 2P', cursive; (Hérité) */
             color: var(--accent-blue);
             font-size: 1.2rem;
             text-transform: uppercase;
@@ -93,7 +101,7 @@
             gap: 20px;
         }
         .pdf-item { 
-            width: 180px; 
+            width: 200px; /* Un peu plus large pour accommoder la nouvelle police */
             text-align: center; 
             padding: 15px;
             transition: transform 0.2s;
@@ -102,27 +110,27 @@
             transform: translateY(-5px);
         }
         .pdf-item i { 
-            font-size: 50px; 
-            color: var(--accent-blue); 
-            margin-bottom: 10px;
+            font-size: 40px; /* Icônes un peu plus petites pour équilibrer */
+            color: var(--accent-blue);
+            margin-bottom: 15px;
             filter: drop-shadow(2px 2px 0px #003399);
         }
         .pdf-item a {
             text-decoration: none;
             color: white;
-            font-family: 'Segoe UI', sans-serif;
-            font-weight: bold;
-            font-size: 0.8rem;
+            /* font-family: 'Segoe UI', sans-serif;  <-- SUPPRIMÉ pour garder le style foot 2 rue */
+            font-size: 0.6rem; /* Taille adaptée aux titres des PDF */
             line-height: 1.5;
             word-wrap: break-word;
+            display: block; /* Assure que le texte va à la ligne */
         }
 
         /* --- Boutons & Badges --- */
         .btn-pixel {
             background-color: var(--accent-blue);
             color: white;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
+            /* font-family: 'Press Start 2P', cursive; (Hérité) */
+            font-size: 0.6rem;
             padding: 10px 20px;
             border: none;
             box-shadow: 3px 3px 0px #003399;
@@ -139,8 +147,8 @@
             background: rgba(0, 102, 255, 0.2);
             border: 1px solid var(--accent-blue);
             padding: 8px 15px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.6rem;
+            /* font-family: 'Press Start 2P', cursive; (Hérité) */
+            font-size: 0.5rem;
             color: var(--accent-blue);
             display: inline-block;
             margin-top: 10px;
@@ -156,7 +164,7 @@
         .accordion-button {
             background-color: rgba(0, 102, 255, 0.1) !important;
             color: var(--accent-blue) !important;
-            font-family: 'Press Start 2P', cursive;
+            /* font-family: 'Press Start 2P', cursive; (Hérité) */
             font-size: 0.7rem;
             box-shadow: none !important;
         }
@@ -176,7 +184,7 @@
         .veille-table th {
             background-color: rgba(0, 102, 255, 0.2);
             color: var(--accent-blue);
-            font-family: 'Press Start 2P', cursive;
+            /* font-family: 'Press Start 2P', cursive; (Hérité) */
             font-size: 0.6rem;
             border-bottom: 2px solid var(--accent-blue);
             vertical-align: middle;
@@ -187,6 +195,15 @@
             color: #ddd;
             border-color: rgba(255,255,255,0.1);
             padding: 15px;
+            font-size: 0.55rem; /* Taille réduite pour le contenu du tableau */
+        }
+        /* Ajustements pour les petits textes dans le tableau */
+        .veille-table .small {
+            font-size: 0.5rem !important;
+        }
+        .badge {
+            font-size: 0.5rem !important;
+             font-family: 'Press Start 2P', cursive !important;
         }
         
         footer {
@@ -310,7 +327,7 @@
         <h2 class="section-title">Veille Technologique</h2>
         
         <div class="cv-container mb-4">
-            <h4 style="font-family: 'Press Start 2P'; font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 20px;">
+            <h4 style="font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 20px;">
                 <i class="fa-solid fa-microchip me-2"></i>Sujet : Évolution des GPU & Marché Graphique
             </h4>
             <div class="row align-items-center">
@@ -466,7 +483,7 @@
         </div>
 
         <div class="mt-4 p-3" style="background: rgba(0, 102, 255, 0.1); border-left: 4px solid var(--accent-blue);">
-            <h5 style="font-size: 0.9rem; font-weight: bold; color: var(--accent-blue);">Synthèse Globale</h5>
+            <h5 style="font-size: 0.8rem; font-weight: bold; color: var(--accent-blue);">Synthèse Globale</h5>
             <p class="small mb-0" style="color: #ccc;">
                 L'enchaînement des événements depuis fin 2025 confirme le tournant : l'arrivée effective de l'architecture Blackwell (RTX 50) et la résistance d'Intel sur l'entrée de gamme structurent le marché, tandis que les tensions géopolitiques et la demande IA continuent de peser sur les prix.
             </p>
@@ -479,10 +496,9 @@
             <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
             <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
         </div>
-        <p class="small mb-0" style="font-family: 'Press Start 2P'; font-size: 0.5rem;">© 2026 Leydan Huet</p>
+        <p class="small mb-0" style="font-size: 0.5rem;">© 2026 Leydan Huet</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
