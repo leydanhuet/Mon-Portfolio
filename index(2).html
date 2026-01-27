@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSB - Galaxy Swiss Bourdin</title>
+    <style>
+        /* --- CHARTE GRAPHIQUE --- */
+        :root {
+            --medical-blue: #3498db;
+            --dark-blue: #2c3e50;
+            --light-gray: #f4f6f7;
+            --white: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* En-tête */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--medical-blue);
+            cursor: pointer;
+        }
+        
+        .logo span { color: var(--dark-blue); margin-left: 5px; }
+
+        .nav-links { list-style: none; display: flex; gap: 20px; padding: 0; }
+        .nav-links li { cursor: pointer; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        /* Effet au survol et lien actif */
+        .nav-links a:hover, .nav-links a.active {
+            background-color: var(--medical-blue);
+            color: var(--white);
+        }
+
+        /* --- GESTION DE L'AFFICHAGE DES PAGES --- */
+        /* Par défaut, toutes les sections sont cachées */
+        section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        /* Seule la classe .active-section sera visible */
+        section.active-section {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Design spécifique Accueil */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(52, 152, 219, 0.7)), url('https://images.unsplash.com/photo-1579684385136-132bcad5a1e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 0 0 8px 8px;
+            margin-bottom: 40px;
+        }
+
+        /* Conteneurs */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--medical-blue); border-bottom: 2px solid var(--light-gray); padding-bottom: 10px; }
+        h3 { color: var(--dark-blue); margin-top: 30px; }
+
+        /* Grilles et Listes */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .tech-stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: var(--medical-blue);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .stat-item strong { display: block; font-size: 1.5rem; }
+
+        /* Formulaire */
+        .contact-form { display: grid; gap: 15px; max-width: 600px; margin: 0 auto; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: var(--medical-blue); color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: var(--dark-blue); }
+
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: auto; /* Pousse le footer en bas */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo" onclick="changerPage('accueil')">GSB <span>Galaxy Swiss Bourdin</span></div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="changerPage('accueil')" id="link-accueil" class="active">Accueil</a></li>
+                <li><a href="#" onclick="changerPage('presentation')" id="link-presentation">Le Groupe</a></li>
+                <li><a href="#" onclick="changerPage('activites')" id="link-activites">Moyens Techniques</a></li>
+                <li><a href="#" onclick="changerPage('organisation')" id="link-organisation">Organisation</a></li>
+                <li><a href="#" onclick="changerPage('contact')" id="link-contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil" class="active-section">
+        <div class="hero">
+            <h1>Laboratoire Galaxy Swiss Bourdin</h1>
+            <p>"Pour la Science... Du Lendemain..."</p>
+        </div>
+        <div class="container" style="text-align:center;">
+            <h3>Bienvenue sur l'intranet GSB</h3>
+            <p>Le laboratoire Galaxy Swiss Bourdin (GSB) est un acteur majeur de l'industrie pharmaceutique.</p>
+            <p>Utilisez le menu ci-dessus pour naviguer à travers les services.</p>
+        </div>
+    </section>
+
+    <section id="presentation">
+        <div class="container">
+            <h2>Qui sommes-nous ?</h2>
+            <p>Issu de la fusion entre le géant américain Galaxy et le conglomérat européen Swiss Bourdin, GSB est un laboratoire totalement dédié au service des pharmaciens.</p>
+            <div class="grid-2">
+                <div>
+                    <h3>Chiffres Clés</h3>
+                    <ul>
+                        <li><strong>Chiffre d'affaires :</strong> 181 M€</li>
+                        <li><strong>Force de vente :</strong> 83 VRP et 30 conseillères</li>
+                        <li><strong>Références :</strong> Plus de 4500 produits</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Nos Produits</h3>
+                    <p>Spécialités reconnues : <strong>Mag2, Opticron, Arnican, Vitascorbol</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="activites">
+        <div class="container">
+            <h2>Nos Moyens Techniques</h2>
+            <p>L'informatique est fortement répandue sur le site pour assurer une tolérance aux pannes maximale.</p>
+            <div class="tech-stats">
+                <div class="stat-item"><strong>350</strong> Postes terminaux</div>
+                <div class="stat-item"><strong>45</strong> Serveurs physiques</div>
+                <div class="stat-item"><strong>100+</strong> Serveurs virtuels</div>
+            </div>
+            <p>Le Siège Parisien centralise toutes les fonctions administratives. Données répliquées aux États-Unis.</p>
+        </div>
+    </section>
+
+    <section id="organisation">
+        <div class="container">
+            <h2>Notre Organisation</h2>
+            <div class="grid-2">
+                <div class="team-list">
+                    <h3>Pharmaciens Biologistes</h3>
+                    <ul>
+                        <li>ARIMANO Paul</li>
+                        <li>CHAYIA Valérie</li>
+                        <li>AMENDOLA Nathalie</li>
+                        <li>LEMAREC Claude</li>
+                    </ul>
+                    <h3>Technique</h3>
+                    <ul><li>GENET Raymond (Qualiticien)</li></ul>
+                </div>
+                <div class="locations">
+                    <h3>Implantations</h3>
+                    <p><strong>Siège :</strong> 45 Av. de la Grande Armée, 75017 Paris</p>
+                    <p><strong>Laboratoire :</strong> 12 Av. des Sciences, 92100 Boulogne</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message envoyé au siège GSB !');">
+                <label>Nom : <input type="text" required></label>
+                <label>Email : <input type="email" required></label>
+                <label>Sujet : 
+                    <select>
+                        <option>Information</option>
+                        <option>Recrutement</option>
+                    </select>
+                </label>
+                <label>Message : <textarea rows="5" required></textarea></label>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Laboratoire GSB.</p>
+    </footer>
+
+    <script>
+        function changerPage(pageId) {
+            // 1. Cacher toutes les sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active-section');
+            });
+
+            // 2. Afficher la section demandée
+            const sectionAffiche = document.getElementById(pageId);
+            if (sectionAffiche) {
+                sectionAffiche.classList.add('active-section');
+            }
+
+            // 3. Mettre à jour le menu (classe .active)
+            const liens = document.querySelectorAll('.nav-links a');
+            liens.forEach(lien => {
+                lien.classList.remove('active');
+            });
+            
+            // Ajouter la classe active sur le lien cliqué
+            const lienActif = document.getElementById('link-' + pageId);
+            if (lienActif) {
+                lienActif.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
