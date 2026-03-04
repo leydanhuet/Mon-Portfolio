@@ -3,391 +3,508 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leydan Huet - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
+    <title>VM Backup Manager - Freestyle Edition 🚀</title>
     <style>
+        /* Variables Freestyle & Dark Mode */
         :root {
-            --primary-bg: #0d0d0d;
-            --card-bg: rgba(38, 38, 38, 0.9);
-            --accent-blue: #0066ff;
-            --text-color: #ffffff;
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --neon-cyan: #00f2fe;
+            --neon-purple: #4facfe;
+            --danger: #ff0844;
+            --success: #00b09b;
         }
 
-        body { 
-            font-family: 'Press Start 2P', cursive; 
-            font-size: 0.6rem; 
-            line-height: 1.8;
-            background-color: var(--primary-bg); 
-            color: var(--text-color); 
-            background-image: 
-                linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.9)),
-                url('Fond.jpg');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
         }
 
-        /* --- Navigation --- */
-        .navbar { 
-            background-color: rgba(26, 26, 26, 0.95); 
-            border-bottom: 2px solid var(--accent-blue);
-            backdrop-filter: blur(10px);
-        } 
-        .navbar-brand, .nav-link { 
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.7rem;
-            color: var(--text-color) !important;
-        }
-        .nav-link:hover { 
-            color: var(--accent-blue) !important;
-            text-shadow: 0 0 5px var(--accent-blue);
-        }
-
-        /* --- Hero Section --- */
-        .hero-section { 
-            padding: 100px 0 80px; 
-            text-align: center; 
-            border-bottom: 4px solid var(--accent-blue);
-            background: transparent;
-        }
-        .profile-img { 
-            width: 200px; 
-            height: 200px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 4px solid var(--accent-blue); 
-            box-shadow: 0 0 15px rgba(0, 102, 255, 0.6); 
-            margin-bottom: 20px;
-        }
-        h1 {
-            text-shadow: 3px 3px 0px #0044cc;
-            font-size: 2rem;
-        }
-        .lead {
-             font-size: 0.8rem;
-        }
-
-        /* --- Sections Communes --- */
-        .section-title { 
-            margin: 60px 0 40px; 
-            text-align: center; 
-            color: var(--accent-blue);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-        }
-        
-        .cv-container { 
-            background: var(--card-bg); 
-            border: 1px solid rgba(0, 102, 255, 0.3);
-            border-radius: 0; 
-            padding: 30px; 
-            margin-bottom: 30px;
-            box-shadow: 5px 5px 0px #003399;
-        }
-
-        /* --- Cartes PDF --- */
-        .pdf-grid {
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 242, 254, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(79, 172, 254, 0.08), transparent 25%);
         }
-        .pdf-item { 
-            width: 220px;
-            text-align: center; 
-            padding: 15px;
-            transition: transform 0.2s;
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 250px;
+            background: rgba(15, 23, 42, 0.9);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem 0;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
         }
-        .pdf-item:hover { 
-            transform: translateY(-5px);
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        .pdf-item i { 
-            font-size: 40px;
-            color: var(--accent-blue);
-            margin-bottom: 15px;
-            filter: drop-shadow(2px 2px 0px #003399);
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 1rem 2rem;
+            text-align: left;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
         }
-        .pdf-item a {
-            text-decoration: none;
-            color: white;
-            font-size: 0.6rem;
-            line-height: 1.5;
-            word-wrap: break-word;
+
+        .nav-btn:hover {
+            color: var(--text-main);
+            background: rgba(255,255,255,0.05);
+            transform: translateX(5px);
+        }
+
+        .nav-btn.active {
+            color: var(--neon-cyan);
+            border-left-color: var(--neon-cyan);
+            background: linear-gradient(90deg, rgba(0, 242, 254, 0.1) 0%, transparent 100%);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .screen {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .screen.active {
             display: block;
         }
 
-        /* --- Boutons & Badges --- */
-        .btn-pixel {
-            background-color: var(--accent-blue);
-            color: white;
-            font-size: 0.6rem;
-            padding: 10px 20px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px dashed rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Cards & Forms */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--neon-purple);
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-main);
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-cyan));
+            color: #000;
             border: none;
-            box-shadow: 3px 3px 0px #003399;
-            text-decoration: none;
-            display: inline-block;
-            margin: 5px;
-        }
-        .btn-pixel:hover {
-            background-color: #3385ff;
-            color: white;
-            transform: translate(-1px, -1px);
-        }
-        .badge-inazuma {
-            background: rgba(0, 102, 255, 0.2);
-            border: 1px solid var(--accent-blue);
-            padding: 8px 15px;
-            font-size: 0.5rem;
-            color: var(--accent-blue);
-            display: inline-block;
-            margin-top: 10px;
-            margin-right: 5px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* --- Veille Techno --- */
-        .accordion-item {
-            background-color: transparent !important;
-            border: 1px solid rgba(0, 102, 255, 0.3);
-            margin-bottom: 10px;
-        }
-        .accordion-button {
-            background-color: rgba(0, 102, 255, 0.1) !important;
-            color: var(--accent-blue) !important;
-            font-size: 0.7rem;
-            box-shadow: none !important;
-        }
-        .accordion-button:not(.collapsed) {
-            background-color: var(--accent-blue) !important;
-            color: white !important;
-            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5) !important;
-        }
-        .accordion-body {
-            background-color: rgba(20, 20, 20, 0.95);
-            padding: 0;
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 242, 254, 0.4);
         }
 
-        .veille-table { margin-bottom: 0; }
-        .veille-table th {
-            background-color: rgba(0, 102, 255, 0.2);
-            color: var(--accent-blue);
-            font-size: 0.6rem;
-            border-bottom: 2px solid var(--accent-blue);
-            vertical-align: middle;
+        .btn-danger {
+            background: linear-gradient(45deg, #ff0844, #ffb199);
         }
-        .veille-table td {
-            vertical-align: middle;
-            background-color: transparent;
-            color: #ddd;
-            border-color: rgba(255,255,255,0.1);
-            padding: 15px;
-            font-size: 0.55rem;
+
+        .btn-danger:hover {
+            box-shadow: 0 8px 20px rgba(255, 8, 68, 0.4);
         }
-        
-        footer {
-            border-top: 3px solid var(--accent-blue);
-            background: #000;
-            padding: 20px;
-            margin-top: 50px;
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        th {
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--neon-cyan);
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-bolt me-2"></i>Leydan Huet</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#bloc1">Bloc 1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#bloc2">Bloc 2</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#bloc3">Bloc 3</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#veille">Veille</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+    <nav class="sidebar">
+        <div class="brand">🚀 VM_Backup<br>Manager</div>
+        <button class="nav-btn active" data-target="screen-vms">🖥️ /> VMS</button>
+        <button class="nav-btn" data-target="screen-backups">💾 /> Sauvegardes</button>
+        <button class="nav-btn" data-target="screen-reports">📈 /> Rapports</button>
+        <button class="nav-btn" data-target="screen-settings">⚙️ /> Paramètres</button>
+        <button class="nav-btn" data-target="screen-import">🛸 /> Import/Export</button>
     </nav>
 
-    <section id="home" class="hero-section">
-        <div class="container">
-            <img src="747161c0d9e604807c2ae8c7e6803d87.jpg" alt="Leydan Huet" class="profile-img">
-            <h1 class="mb-3">Leydan Huet</h1>
-            [cite_start]<p class="lead mb-4">Étudiant en informatique • SIO [cite: 1]</p>
-            <div class="badge-inazuma">Amitié • Respect • Solidarité</div>
-            <div class="mt-4">
-                <a href="#contact" class="btn-pixel">Me contacter</a>
-                <a href="#bloc1" class="btn-pixel">Mes Dossiers</a>
+    <main class="main-content">
+        
+        <section id="screen-vms" class="screen active">
+            <h2>🖥️ Terminal des Machines Virtuelles</h2>
+            <div class="card">
+                <h3>✨ Forger une nouvelle VM</h3>
+                <form id="vm-form" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                    <div class="form-group">
+                        <label>🏷️ Nom de code</label>
+                        <input type="text" id="vm-name" required placeholder="ex: OLYMPE-SRV-01">
+                    </div>
+                    <div class="form-group">
+                        <label>🌐 Adresse IP</label>
+                        <input type="text" id="vm-ip" required placeholder="10.0.0.X">
+                    </div>
+                    <div class="form-group">
+                        <label>💻 Système d'exploitation</label>
+                        <input type="text" id="vm-os" required placeholder="Debian 12 / Windows Server">
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: flex-end;">
+                        <button type="submit" class="btn" style="width: 100%;">⚡ Déployer VM</button>
+                    </div>
+                </form>
             </div>
-        </div>
-    </section>
 
-    <section id="bloc1" class="container">
-        <h2 class="section-title">Bloc 1 : Projets & Rapports</h2>
-        <div class="cv-container">
-            <div class="pdf-grid">
-                <div class="pdf-item">
-                    <a href="Creation_portfolio.pdf" target="_blank">
-                        <i class="fa-regular fa-file-pdf"></i><br>Création Portfolio
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="compte_rendu_connexion.pdf" target="_blank">
-                        <i class="fa-regular fa-file-pdf"></i><br>CR Connexion
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="Compte_rendu_HUET_Leydan_SIO1.pdf" target="_blank">
-                        [cite_start]<i class="fa-regular fa-file-pdf"></i><br>CR Général SIO1 [cite: 1]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="Compte_rendu_HTML_10_09_Leydan_HUET.pdf" target="_blank">
-                        [cite_start]<i class="fa-brands fa-html5"></i><br>Rapport HTML [cite: 1]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="Compte_rendue_Les_bases_du_CSS.pdf" target="_blank">
-                        [cite_start]<i class="fa-brands fa-css3-alt"></i><br>Bases du CSS [cite: 1]
-                    </a>
-                </div>
+            <div class="card">
+                <h3>📡 Flotte Active</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>IP</th>
+                            <th>OS</th>
+                            <th>Ordres</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vm-list">
+                        </tbody>
+                </table>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="bloc2" class="container">
-        <h2 class="section-title">Bloc 2 : Administration Système</h2>
-        <div class="cv-container">
-            <div class="pdf-grid">
-                <div class="pdf-item">
-                    <a href="Entreprise Playstation Linux !.pdf" target="_blank">
-                        [cite_start]<i class="fa-brands fa-linux"></i><br>Scénario Linux (Playstation) [cite: 1]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="Compte_rendu_Les_logiciels_de_diag.pdf" target="_blank">
-                        [cite_start]<i class="fa-solid fa-stethoscope"></i><br>Logiciels Diag [cite: 1]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="Compte_rendu_Java_premier_essai.pdf" target="_blank">
-                        [cite_start]<i class="fa-brands fa-java"></i><br>Premier Essai Java [cite: 1]
-                    </a>
-                </div>
+        <section id="screen-backups" class="screen">
+            <h2>💾 Matrice des Sauvegardes</h2>
+            <div class="card">
+                <h3>🛡️ Initier une sécurisation</h3>
+                <form id="backup-form" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 15px;">
+                    <div class="form-group">
+                        <label>🎯 Cible (VM)</label>
+                        <select id="backup-vm-select" required>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label>📅 Espace-Temps (Date)</label>
+                        <input type="date" id="backup-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>🗄️ Dépôt sécurisé</label>
+                        <input type="text" id="backup-location" required placeholder="ex: Cloud-Alpha / NAS-Zone51">
+                    </div>
+                    <div class="form-group" style="grid-column: span 3;">
+                        <button type="submit" class="btn">🔥 Lancer le Backup</button>
+                    </div>
+                </form>
             </div>
-        </div>
-    </section>
 
-    <section id="bloc3" class="container">
-        <h2 class="section-title">Bloc 3 : Cybersécurité & Web</h2>
-        <div class="cv-container">
-            <div class="pdf-grid">
-                <div class="pdf-item">
-                    <a href="Leydan HUET Exo cyb.pdf" target="_blank">
-                        [cite_start]<i class="fa-solid fa-shield-halved"></i><br>Exercice Cyber [cite: 1]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="site vitrine.pdf" target="_blank">
-                        [cite_start]<i class="fa-regular fa-file-pdf"></i><br>Sujet Site Vitrine [cite: 1]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="index(2).html" target="_blank">
-                        [cite_start]<i class="fa-solid fa-globe"></i><br>Site GSB (Réalisation) [cite: 1]
-                    </a>
-                </div>
-
-                <div class="pdf-item">
-                    <a href="Clonage.pdf" target="_blank">
-                        [cite_start]<i class="fa-solid fa-copy"></i><br>TP Clonage Disque [cite: 2]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="Clônage _ déploiement de masse.pdf" target="_blank">
-                        [cite_start]<i class="fa-solid fa-network-wired"></i><br>Déploiement de masse [cite: 3]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="TP04 - Wake On Lan.pdf" target="_blank">
-                        [cite_start]<i class="fa-solid fa-power-off"></i><br>Wake On LAN (WOL) [cite: 4]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="TP2 L'Active Directory.pdf" target="_blank">
-                        [cite_start]<i class="fa-solid fa-users-gear"></i><br>Active Directory [cite: 5]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="TP05 - Serveur de fichiers.pdf" target="_blank">
-                        [cite_start]<i class="fa-solid fa-server"></i><br>Serveur de fichiers [cite: 6]
-                    </a>
-                </div>
-                <div class="pdf-item">
-                    <a href="Le transfert du site.pdf" target="_blank">
-                        [cite_start]<i class="fa-solid fa-file-import"></i><br>Transfert FTP/SFTP [cite: 7]
-                    </a>
-                </div>
+            <div class="card">
+                <h3>📜 Archives Récentes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cible</th>
+                            <th>Date</th>
+                            <th>Dépôt</th>
+                            <th>État</th>
+                        </tr>
+                    </thead>
+                    <tbody id="backup-list">
+                        </tbody>
+                </table>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="veille" class="container">
-        [cite_start]<h2 class="section-title">Veille Technologique [cite: 1]</h2>
-        <div class="cv-container mb-4">
-            <h4 style="font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 20px;">
-                [cite_start]<i class="fa-solid fa-microchip me-2"></i>Sujet : Évolution des GPU & Marché Graphique [cite: 1]
-            </h4>
-            [cite_start]<p class="small text-white-50">Suivi des innovations NVIDIA, AMD et impact de l'IA. [cite: 1]</p>
-        </div>
-
-        <div class="accordion" id="accordionVeille">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                        [cite_start]<i class="fa-regular fa-calendar-days me-2"></i>Janvier 2026 (En cours) [cite: 1]
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
-                        <div class="table-responsive">
-                            <table class="table table-dark table-hover veille-table align-middle m-0">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Sujet</th>
-                                        [cite_start]<th>Analyse [cite: 1]</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>20/01/2026</td>
-                                        <td>Crise des prix GPU</td>
-                                        [cite_start]<td>Pénurie et demande IA croissante. [cite: 1]</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+        <section id="screen-reports" class="screen">
+            <h2>📈 Télémétrie & Statistiques</h2>
+            <div class="card" style="text-align: center; padding: 3rem;">
+                <h3 style="color: var(--neon-purple); font-size: 2rem;">🚧 MODULE EN CONSTRUCTION 🚧</h3>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Les algorithmes de prédiction calculent actuellement vos statistiques...</p>
+                <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem;">
+                    <div style="padding: 2rem; background: rgba(0,0,0,0.5); border-radius: 10px; border: 1px solid rgba(0, 242, 254, 0.2);">
+                        <h4 style="color: var(--neon-cyan);">🖥️ Total VMs</h4>
+                        <p id="stat-total-vms" style="font-size: 2.5rem; font-weight: bold; text-shadow: 0 0 10px var(--neon-cyan);">0</p>
+                    </div>
+                    <div style="padding: 2rem; background: rgba(0,0,0,0.5); border-radius: 10px; border: 1px solid rgba(79, 172, 254, 0.2);">
+                        <h4 style="color: var(--neon-purple);">📦 Sauvegardes</h4>
+                        <p id="stat-total-backups" style="font-size: 2.5rem; font-weight: bold; text-shadow: 0 0 10px var(--neon-purple);">0</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="text-center" id="contact">
-        <div class="mb-3">
-            <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-            <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
-        </div>
-        [cite_start]<p class="small mb-0" style="font-size: 0.5rem;">© 2026 Leydan Huet [cite: 1]</p>
-    </footer>
+        <section id="screen-settings" class="screen">
+            <h2>⚙️ Centre de Contrôle</h2>
+            <div class="card">
+                <h3>🛠️ Options Globales</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Configuration des protocoles et préférences système.</p>
+                <div style="padding: 1rem; background: rgba(255, 8, 68, 0.1); border-radius: 8px; border: 1px dashed var(--danger);">
+                    <h4 style="color: var(--danger); margin-bottom: 0.5rem;">⚠️ ZONE DANGEREUSE</h4>
+                    <button class="btn btn-danger" onclick="clearData()">💥 NUKE : Purger la base de données</button>
+                </div>
+            </div>
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <section id="screen-import" class="screen">
+            <h2>🛸 Navette de Données (JSON)</h2>
+            <div class="card" style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h3 style="color: var(--success);">📤 Extraction</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);">Cristallisez vos données dans un artefact JSON.</p>
+                    <button class="btn" style="width: 100%;" onclick="exportData()">💎 Générer l'Artefact (Export)</button>
+                </div>
+                <div style="flex: 1; min-width: 250px; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 2rem;">
+                    <h3 style="color: var(--neon-purple);">📥 Assimilation</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-muted);">Ressuscitez vos systèmes depuis un artefact.</p>
+                    <input type="file" id="import-file" accept=".json" style="margin-bottom: 1rem;">
+                    <button class="btn" style="width: 100%;" onclick="importData()">🧬 Assimiler les Données (Import)</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- 1. INITIALISATION DE LA BASE DE DONNÉES LOCALE ---
+        let db = JSON.parse(localStorage.getItem('freestyle_vm_db')) || { vms: [], backups: [] };
+
+        function saveDB() {
+            localStorage.setItem('freestyle_vm_db', JSON.stringify(db));
+            updateUI();
+        }
+
+        // --- 2. GESTION DE LA NAVIGATION (SPA) ---
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const screens = document.querySelectorAll('.screen');
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navBtns.forEach(b => b.classList.remove('active'));
+                screens.forEach(s => s.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.target).classList.add('active');
+            });
+        });
+
+        // --- 3. GESTION DES MACHINES VIRTUELLES ---
+        document.getElementById('vm-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newVM = {
+                id: Date.now().toString(),
+                name: document.getElementById('vm-name').value,
+                ip: document.getElementById('vm-ip').value,
+                os: document.getElementById('vm-os').value
+            };
+            db.vms.push(newVM);
+            saveDB();
+            e.target.reset();
+            // Petit feedback visuel rapide
+            document.querySelector('#vm-form button').innerText = "✔️ VM Déployée !";
+            setTimeout(() => document.querySelector('#vm-form button').innerText = "⚡ Déployer VM", 2000);
+        });
+
+        function deleteVM(id) {
+            if(confirm('⚠️ Alerte : Êtes-vous sûr de vouloir désintégrer cette VM ?')) {
+                db.vms = db.vms.filter(vm => vm.id !== id);
+                db.backups = db.backups.filter(b => b.vmId !== id);
+                saveDB();
+            }
+        }
+
+        // --- 4. GESTION DES SAUVEGARDES ---
+        document.getElementById('backup-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newBackup = {
+                id: Date.now().toString(),
+                vmId: document.getElementById('backup-vm-select').value,
+                date: document.getElementById('backup-date').value,
+                location: document.getElementById('backup-location').value
+            };
+            db.backups.push(newBackup);
+            saveDB();
+            e.target.reset();
+            document.querySelector('#backup-form button').innerText = "✔️ Backup Validé !";
+            setTimeout(() => document.querySelector('#backup-form button').innerText = "🔥 Lancer le Backup", 2000);
+        });
+
+        // --- 5. IMPORT / EXPORT ---
+        function exportData() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db, null, 2));
+            const downloadAnchorNode = document.createElement('a');
+            downloadAnchorNode.setAttribute("href", dataStr);
+            downloadAnchorNode.setAttribute("download", "matrix_backup_" + new Date().toISOString().split('T')[0] + ".json");
+            document.body.appendChild(downloadAnchorNode);
+            downloadAnchorNode.click();
+            downloadAnchorNode.remove();
+        }
+
+        function importData() {
+            const fileInput = document.getElementById('import-file');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("🛑 Requête rejetée : Veuillez sélectionner un artefact JSON valide.");
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedDB = JSON.parse(e.target.result);
+                    if(importedDB.vms && importedDB.backups) {
+                        db = importedDB;
+                        saveDB();
+                        alert("👑 Base de données restaurée avec succès, Mon Empereur ! 🚀");
+                    } else {
+                        alert("💀 Corruption détectée : Format de fichier invalide.");
+                    }
+                } catch (err) {
+                    alert("🚨 Alerte Rouge : Échec lors de la lecture du fichier JSON.");
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function clearData() {
+            if(confirm('☢️ INITIATION PROTOCOLE DE PURGE. Confirmez-vous la destruction totale des données locales ?')) {
+                db = { vms: [], backups: [] };
+                saveDB();
+                alert("💥 Purge terminée. Le système est vierge.");
+            }
+        }
+
+        // --- 6. MISE À JOUR DE L'INTERFACE ---
+        function updateUI() {
+            const vmList = document.getElementById('vm-list');
+            if(db.vms.length === 0) {
+                vmList.innerHTML = `<tr><td colspan="4" style="text-align:center; color: var(--text-muted);">👻 Aucune VM détectée dans le système.</td></tr>`;
+            } else {
+                vmList.innerHTML = db.vms.map(vm => `
+                    <tr>
+                        <td><strong>${vm.name}</strong></td>
+                        <td>${vm.ip}</td>
+                        <td><span class="badge">💻 ${vm.os}</span></td>
+                        <td><button class="btn btn-danger" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;" onclick="deleteVM('${vm.id}')">💥 Détruire</button></td>
+                    </tr>
+                `).join('');
+            }
+
+            const vmSelect = document.getElementById('backup-vm-select');
+            vmSelect.innerHTML = `<option value="">-- 🎯 Sélectionner une cible --</option>` + 
+                db.vms.map(vm => `<option value="${vm.id}">🖥️ ${vm.name}</option>`).join('');
+
+            const backupList = document.getElementById('backup-list');
+            if(db.backups.length === 0) {
+                backupList.innerHTML = `<tr><td colspan="4" style="text-align:center; color: var(--text-muted);">🕸️ Aucune archive temporelle trouvée.</td></tr>`;
+            } else {
+                backupList.innerHTML = db.backups.sort((a,b) => new Date(b.date) - new Date(a.date)).map(b => {
+                    const vm = db.vms.find(v => v.id === b.vmId);
+                    const vmName = vm ? `🖥️ ${vm.name}` : '<span style="color: var(--danger);">💀 Cible Désintégrée</span>';
+                    return `
+                        <tr>
+                            <td><strong>${vmName}</strong></td>
+                            <td>📅 ${b.date}</td>
+                            <td>🗄️ ${b.location}</td>
+                            <td><span class="badge" style="background: rgba(0,176,155,0.2); color: var(--success);">✅ SÉCURISÉ</span></td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+
+            document.getElementById('stat-total-vms').innerText = db.vms.length;
+            document.getElementById('stat-total-backups').innerText = db.backups.length;
+        }
+
+        // Initialisation
+        updateUI();
+        document.getElementById('backup-date').valueAsDate = new Date();
+    </script>
 </body>
 </html>
