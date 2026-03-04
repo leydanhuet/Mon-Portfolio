@@ -40,12 +40,12 @@
             font-size: 0.7rem;
             color: var(--text-color) !important;
         }
-        .nav-link:hover { color: var(--accent-blue) !important; }
+        .nav-link:hover { color: var(--accent-blue) !important; text-shadow: 0 0 5px var(--accent-blue); }
 
         .hero-section { padding: 100px 0 80px; text-align: center; border-bottom: 4px solid var(--accent-blue); }
-        .profile-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-blue); margin-bottom: 20px; }
+        .profile-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-blue); box-shadow: 0 0 15px rgba(0, 102, 255, 0.6); margin-bottom: 20px; }
         
-        .section-title { margin: 60px 0 40px; text-align: center; color: var(--accent-blue); font-size: 1.2rem; }
+        .section-title { margin: 60px 0 40px; text-align: center; color: var(--accent-blue); font-size: 1.2rem; text-transform: uppercase; }
         
         .cv-container { 
             background: var(--card-bg); 
@@ -56,9 +56,10 @@
         }
 
         .pdf-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-        .pdf-item { width: 220px; text-align: center; padding: 15px; }
-        .pdf-item i { font-size: 40px; color: var(--accent-blue); margin-bottom: 15px; }
-        .pdf-item a { text-decoration: none; color: white; display: block; }
+        .pdf-item { width: 220px; text-align: center; padding: 15px; transition: transform 0.2s; }
+        .pdf-item:hover { transform: translateY(-5px); }
+        .pdf-item i { font-size: 40px; color: var(--accent-blue); margin-bottom: 15px; filter: drop-shadow(2px 2px 0px #003399); }
+        .pdf-item a { text-decoration: none; color: white; font-size: 0.6rem; display: block; }
 
         .btn-pixel {
             background-color: var(--accent-blue);
@@ -68,14 +69,25 @@
             box-shadow: 3px 3px 0px #003399;
             text-decoration: none;
             display: inline-block;
+            margin: 5px;
         }
 
-        /* Style Veille Technologique */
+        .badge-inazuma {
+            background: rgba(0, 102, 255, 0.2);
+            border: 1px solid var(--accent-blue);
+            padding: 8px 15px;
+            font-size: 0.5rem;
+            color: var(--accent-blue);
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Accordion Veille */
         .accordion-item { background-color: transparent !important; border: 1px solid rgba(0, 102, 255, 0.3); margin-bottom: 10px; }
         .accordion-button { background-color: rgba(0, 102, 255, 0.1) !important; color: var(--accent-blue) !important; font-size: 0.7rem; }
         .accordion-button:not(.collapsed) { background-color: var(--accent-blue) !important; color: white !important; }
-        .veille-table th { background-color: rgba(0, 102, 255, 0.2); color: var(--accent-blue); font-size: 0.6rem; }
-        .veille-table td { font-size: 0.55rem; color: #ddd; vertical-align: middle; }
+        .veille-table th { background-color: rgba(0, 102, 255, 0.2); color: var(--accent-blue); font-size: 0.6rem; border-bottom: 2px solid var(--accent-blue); }
+        .veille-table td { vertical-align: middle; background-color: transparent; color: #ddd; border-color: rgba(255,255,255,0.1); padding: 15px; font-size: 0.55rem; }
     </style>
 </head>
 <body>
@@ -83,41 +95,62 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#"><i class="fa-solid fa-bolt me-2"></i>Leydan Huet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#bloc1">Bloc 1</a></li>
                     <li class="nav-item"><a class="nav-link" href="#bloc2">Bloc 2</a></li>
                     <li class="nav-item"><a class="nav-link" href="#bloc3">Bloc 3</a></li>
                     <li class="nav-item"><a class="nav-link" href="#veille">Veille</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section">
+    <section id="home" class="hero-section">
         <div class="container">
             <img src="747161c0d9e604807c2ae8c7e6803d87.jpg" alt="Leydan Huet" class="profile-img">
             <h1>Leydan Huet</h1>
-            <p>Étudiant en BTS SIO</p>
+            <p class="lead">Étudiant en informatique • SIO</p>
+            <div class="badge-inazuma">Amitié • Respect • Solidarité</div>
         </div>
     </section>
 
     <section id="bloc1" class="container">
-        <h2 class="section-title">Bloc 1 : Support et Mise à disposition de services</h2>
+        <h2 class="section-title">Bloc 1 : Support et mise à disposition de services informatiques</h2>
         <div class="cv-container">
             <div class="pdf-grid">
                 <div class="pdf-item"><a href="Creation_portfolio.pdf" target="_blank"><i class="fa-regular fa-file-pdf"></i><br>Création Portfolio</a></div>
                 <div class="pdf-item"><a href="compte_rendu_connexion.pdf" target="_blank"><i class="fa-regular fa-file-pdf"></i><br>CR Connexion</a></div>
                 <div class="pdf-item"><a href="Compte_rendu_HUET_Leydan_SIO1.pdf" target="_blank"><i class="fa-regular fa-file-pdf"></i><br>CR Général</a></div>
+                <div class="pdf-item"><a href="Compte_rendu_HTML_10_09_Leydan_HUET.pdf" target="_blank"><i class="fa-brands fa-html5"></i><br>Rapport HTML</a></div>
+                <div class="pdf-item"><a href="Compte_rendue_Les_bases_du_CSS.pdf" target="_blank"><i class="fa-brands fa-css3-alt"></i><br>Bases CSS</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bloc2" class="container">
+        <h2 class="section-title">Bloc 2 : Administration des systèmes et des réseaux</h2>
+        <div class="cv-container">
+            <div class="pdf-grid">
+                <div class="pdf-item"><a href="Entreprise Playstation Linux !.pdf" target="_blank"><i class="fa-brands fa-linux"></i><br>Scénario Linux</a></div>
+                <div class="pdf-item"><a href="Compte_rendu_Les_logiciels_de_diag.pdf" target="_blank"><i class="fa-solid fa-stethoscope"></i><br>Logiciels Diag</a></div>
+                <div class="pdf-item"><a href="Compte_rendu_Java_premier_essai.pdf" target="_blank"><i class="fa-brands fa-java"></i><br>Premier Essai Java</a></div>
             </div>
         </div>
     </section>
 
     <section id="bloc3" class="container">
-        <h2 class="section-title">Bloc 3 : Cybersécurité & Administration</h2>
+        <h2 class="section-title">Bloc 3 : Cybersécurité & Web</h2>
         <div class="cv-container">
             <div class="pdf-grid">
                 <div class="pdf-item"><a href="Leydan HUET Exo cyb.pdf" target="_blank"><i class="fa-solid fa-shield-halved"></i><br>Exercice Cyber</a></div>
+                <div class="pdf-item"><a href="site vitrine.pdf" target="_blank"><i class="fa-regular fa-file-pdf"></i><br>Sujet Site Vitrine</a></div>
+                <div class="pdf-item"><a href="index(2).html" target="_blank"><i class="fa-solid fa-globe"></i><br>Site GSB</a></div>
                 <div class="pdf-item"><a href="Clonage.pdf" target="_blank"><i class="fa-solid fa-copy"></i><br>TP Clonage</a></div>
                 <div class="pdf-item"><a href="Clônage _ déploiement de masse.pdf" target="_blank"><i class="fa-solid fa-network-wired"></i><br>Déploiement Masse</a></div>
                 <div class="pdf-item"><a href="TP04 - Wake On Lan.pdf" target="_blank"><i class="fa-solid fa-power-off"></i><br>Wake On LAN</a></div>
@@ -130,56 +163,62 @@
 
     <section id="veille" class="container">
         <h2 class="section-title">Veille Technologique</h2>
-        <div class="cv-container">
-            <h4 style="font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 20px;">Sujet : Évolution des GPU & Marché Graphique</h4>
-            
-            <div class="accordion" id="accordionVeille">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#jan26">
-                            Janvier 2026
-                        </button>
-                    </h2>
-                    <div id="jan26" class="accordion-collapse collapse show">
+        <div class="cv-container mb-4">
+            <h4 style="font-size: 0.8rem; color: var(--accent-blue); margin-bottom: 20px;">
+                <i class="fa-solid fa-microchip me-2"></i>Sujet : Évolution des GPU & Marché Graphique
+            </h4>
+            <p class="small text-white-50">Suivi des innovations NVIDIA, AMD et impact de l'IA.</p>
+        </div>
+
+        <div class="accordion" id="accordionVeille">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseJan">
+                        <i class="fa-regular fa-calendar-days me-2"></i>Janvier 2026
+                    </button>
+                </h2>
+                <div id="collapseJan" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
                         <div class="table-responsive">
-                            <table class="table table-dark veille-table">
+                            <table class="table table-dark table-hover veille-table align-middle m-0">
                                 <thead>
-                                    <tr><th>Date</th><th>Sujet</th><th>Lien</th></tr>
+                                    <tr><th>Date</th><th>Sujet</th><th>Source/Lien</th></tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>20/01/2026</td>
-                                        <td>Lancement RTX 5090 : Spécifications finales</td>
-                                        <td><a href="https://www.nvidia.com" target="_blank" class="btn-pixel" style="padding: 5px;">Link</a></td>
+                                        <td>RTX 5090 : Les spécifications finales fuitent avant le lancement</td>
+                                        <td><a href="https://www.nvidia.com" target="_blank" class="btn-pixel" style="padding: 5px 8px; font-size: 0.4rem;"><i class=\"fa-solid fa-link\"></i></a></td>
                                     </tr>
                                     <tr>
                                         <td>12/01/2026</td>
-                                        <td>CES 2026 : Annonces AMD RDNA 4</td>
-                                        <td><a href="https://www.amd.com" target="_blank" class="btn-pixel" style="padding: 5px;">Link</a></td>
+                                        <td>CES 2026 : AMD dévoile l'architecture RDNA 4</td>
+                                        <td><a href="https://www.amd.com" target="_blank" class="btn-pixel" style="padding: 5px 8px; font-size: 0.4rem;"><i class=\"fa-solid fa-link\"></i></a></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dec25">
-                            Décembre 2025
-                        </button>
-                    </h2>
-                    <div id="dec25" class="accordion-collapse collapse">
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDec">
+                        <i class="fa-regular fa-calendar-days me-2"></i>Décembre 2025
+                    </button>
+                </h2>
+                <div id="collapseDec" class="accordion-collapse collapse">
+                    <div class="accordion-body">
                         <div class="table-responsive">
-                            <table class="table table-dark veille-table">
+                            <table class="table table-dark table-hover veille-table align-middle m-0">
                                 <thead>
-                                    <tr><th>Date</th><th>Sujet</th><th>Lien</th></tr>
+                                    <tr><th>Date</th><th>Sujet</th><th>Source/Lien</th></tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>15/12/2025</td>
-                                        <td>Impact de l'IA sur la production des GPU</td>
-                                        <td><a href="#" class="btn-pixel" style="padding: 5px;">Link</a></td>
+                                        <td>L'impact des puces IA sur la disponibilité des GPU grand public</td>
+                                        <td><a href="#" class="btn-pixel" style="padding: 5px 8px; font-size: 0.4rem;"><i class=\"fa-solid fa-link\"></i></a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -188,10 +227,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="mt-4 p-3" style="background: rgba(0, 102, 255, 0.1); border-left: 4px solid var(--accent-blue);">
+            <h5 style="font-size: 0.8rem; font-weight: bold; color: var(--accent-blue);">Synthèse Globale</h5>
+            <p class="small mb-0" style="color: #ccc;">
+                L'enchaînement des événements depuis fin 2025 confirme le tournant : l'arrivée effective de l'architecture Blackwell (RTX 50) et la résistance d'Intel sur l'entrée de gamme structurent le marché, tandis que les tensions géopolitiques et la demande IA continuent de peser sur les prix.
+            </p>
+        </div>
     </section>
 
-    <footer class="text-center p-4">
-        <p>© 2026 Leydan Huet - Portfolio Étudiant</p>
+    <footer class="text-center p-4" id="contact">
+        <p class="small">© 2026 Leydan Huet • Réalisé avec Passion</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
